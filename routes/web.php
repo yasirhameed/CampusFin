@@ -11,6 +11,9 @@ use App\Http\Controllers\GuideController;
 // HomeController
 
 Route::get("/", [HomeController::class, 'index']);
+Route::get("/add_project_home", [HomeController::class, 'add_project_home']);
+Route::post("/project_store_home", [HomeController::class, 'project_store_home']);
+
 
 
 // Guide Route

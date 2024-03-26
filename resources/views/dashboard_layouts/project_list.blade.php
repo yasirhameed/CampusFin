@@ -84,6 +84,7 @@
                                                     <th>Project Comment ID</th>
                                                     <th>Project Total Supply</th>
                                                     <th>Project Circulating Supply</th>
+                                                    <th>Status</th>
                                                     </tr>
 
 
@@ -111,6 +112,7 @@
                                                         <td>{{ $project->Project_Comment_Id }}</td>
                                                         <td>{{ $project->Project_Total_Supply }}</td>
                                                         <td>{{ $project->Project_Circulating_Supply }}</td>
+                                                        <td>{{ $project->status }}</td>
                                                         <!-- Add more columns as needed -->
                                                     </tr>
                                                     @endforeach
