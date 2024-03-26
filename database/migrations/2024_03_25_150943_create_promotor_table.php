@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('promotor', function (Blueprint $table) {
-            $table->id('Promotor_Id');
+            $table->id();
             $table->string('Promotor_Name');
             $table->string('Promotor_Type');
             $table->unsignedBigInteger('Promotor_Previous_Project_Id');

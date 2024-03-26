@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('private_invistor', function (Blueprint $table) {
-            $table->id('Private_invistor_Id');
+            $table->id();
             $table->string('Private_invistor_Name');
             $table->string('Private_invistor_Token_Release');
             $table->string('Private_Invistor_Social_Media_Links');

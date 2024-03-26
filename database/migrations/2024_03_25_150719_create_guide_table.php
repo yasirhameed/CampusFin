@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('guide', function (Blueprint $table) {
-            $table->id('Guide_Id');
+        Schema::create('guides', function (Blueprint $table) {
+            $table->id();
             $table->string('Guide_Name');
-            $table->integer('Module_Id');
+            $table->unsignedBigInteger('Module_Id');
             $table->string('Module_Name');
             $table->integer('Module_Priority');
             $table->string('Module_Show_In_Other_Guide');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('guide');
+        Schema::dropIfExists('guides');
     }
 };

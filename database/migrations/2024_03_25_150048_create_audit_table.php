@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('audit_tabel', function (Blueprint $table) {
-            $table->primary('Audit_Id');
+        Schema::create('audit', function (Blueprint $table) {
+            $table->id();
+            $table->string('Audits_Name');
+            $table->string('Audits_URL');
+            $table->unsignedBigInteger('Audits_Comments_Id');
+            $table->string('Audits_Comments');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('audit_tabel', function (Blueprint $table) {
-            $table->dropPrimary('Audit_Id');
-        });
+        Schema::dropIfExists('audit');
     }
 };

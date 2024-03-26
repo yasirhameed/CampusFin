@@ -2,8 +2,9 @@
 <html lang="en">
 
 <head>
+<title>Project List</title>
     @include("dashboard_layouts.css_link");
-    <title>Add Project</title>
+
     <style>
         /* Add custom styles for the scrollable table */
         .scrollable-table {
@@ -65,39 +66,51 @@
                                             <!-- Add the scrollable div -->
                                             <div class="scrollable-table">
                                                 <table class="table table-sm table-boardered">
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th>Logo</th>
-                                                        <th>Symbol</th>
-                                                        <th>Type</th>
-                                                        <th>Domain</th>
-                                                        <th>Category</th>
-                                                        <th>Launch Date</th>
-                                                        <th>Audits</th>
-                                                        <th>Token Standard</th>
-                                                        <th>Blockchain Platform</th>
-                                                        <th>Website</th>
-                                                        <th>GitHub Link</th>
-                                                        <th>Whitepaper</th>
-                                                        <th>Comment</th>
-                                                        <!-- Add more columns as needed -->
+
+                                                   <tr>
+                                                   <th>Project Name</th>
+                                                    <th>Project Logo</th>
+                                                    <th>Project Symbol</th>
+                                                    <th>Project Type</th>
+                                                    <th>Project Domain</th>
+                                                    <th>Project Category</th>
+                                                    <th>Project Launch Date</th>
+                                                    <th>Token Standard</th>
+                                                    <th>Blockchain Platform</th>
+                                                    <th>Project Website</th>
+                                                    <th>Project GitHub Link</th>
+                                                    <th>Project White Paper URL</th>
+                                                    <th>Project Comment</th>
+                                                    <th>Project Comment ID</th>
+                                                    <th>Project Total Supply</th>
+                                                    <th>Project Circulating Supply</th>
                                                     </tr>
+
+
                                                     @foreach($projects as $project)
                                                     <tr>
-                                                        <td>{{ $project->project_name }}</td>
-                                                        <td>{{ $project->project_logo }}</td>
-                                                        <td>{{ $project->project_symbol }}</td>
-                                                        <td>{{ $project->project_type }}</td>
-                                                        <td>{{ $project->project_domain }}</td>
-                                                        <td>{{ $project->project_category }}</td>
-                                                        <td>{{ $project->project_launch_date }}</td>
-                                                        <td>{{ $project->project_audits }}</td>
-                                                        <td>{{ $project->token_standard }}</td>
-                                                        <td>{{ $project->blockchain_platform }}</td>
-                                                        <td>{{ $project->project_website }}</td>
-                                                        <td>{{ $project->project_github_link }}</td>
-                                                        <td>{{ $project->project_whitepaper }}</td>
-                                                        <td>{{ $project->project_comment }}</td>
+                                                        <td>{{ $project->Project_Name }}</td>
+                                                          <td>
+                                                        @if ($project->Project_Logo)
+                                                            <img src="{{ ('products/'. $project->Project_Logo)}} " style="max-width: 100px; max-height: 50px;">
+                                                        @else
+                                                            No image available
+                                                        @endif
+                                                    </td>
+                                                        <td>{{ $project->Project_Symbol }}</td>
+                                                        <td>{{ $project->Project_Type }}</td>
+                                                        <td>{{ $project->Project_Domain }}</td>
+                                                        <td>{{ $project->Project_Category }}</td>
+                                                        <td>{{ $project->Project_Launch_Date }}</td>
+                                                        <td>{{ $project->Token_Standard }}</td>
+                                                        <td>{{ $project->BlockChain_Plateform }}</td>
+                                                        <td>{{ $project->Project_Website }}</td>
+                                                        <td>{{ $project->Project_GitHub_Link }}</td>
+                                                        <td>{{ $project->Project_WhitePaper }}</td>
+                                                        <td>{{ $project->Project_Comment }}</td>
+                                                        <td>{{ $project->Project_Comment_Id }}</td>
+                                                        <td>{{ $project->Project_Total_Supply }}</td>
+                                                        <td>{{ $project->Project_Circulating_Supply }}</td>
                                                         <!-- Add more columns as needed -->
                                                     </tr>
                                                     @endforeach

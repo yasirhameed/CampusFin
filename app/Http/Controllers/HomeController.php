@@ -12,22 +12,5 @@ class HomeController extends Controller
     }
 
 
-    public function blogs_screen()
-    {
-        return view("blogs_screen");
-    }
-
-
-    public function guide_screen()
-    {
-        return view("guide_screen");
-    }
-
-    public function blogs_preview()
-    {
-        return view("blogs_preview");
-    }
-
-
 
 }

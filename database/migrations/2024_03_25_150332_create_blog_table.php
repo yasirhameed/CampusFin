@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('blog', function (Blueprint $table) {
-            $table->id('Blog_Id');
+            $table->id();
             $table->string('Blog_Name');
             $table->string('Blog_Category');
-            $table->string('Related_Blog_Id');
+            $table->unsignedBigInteger('Related_Blog_Id');
             $table->string('Related_Blog_Name');
             $table->string('Related_Blog_URL');
             $table->timestamps();

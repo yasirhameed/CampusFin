@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
+    <title>Add Project</title>
 @include("dashboard_layouts.css_link");
-<title>Add Project</title>
 </head>
 
 <body id="page-top">
@@ -30,7 +30,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Add Project</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
@@ -39,9 +39,9 @@
                     <div class="row">
                         <div class="container">
                             <div class="row justify-content-center">
-                                <div class="col-md-10">
+                                <div class="col-md-12">
                                     <div class="card">
-                                        <div class="card-header">Create New Project</div>
+                                        <div class="card-header">Add Project</div>
 
                                         @if(session('success'))
                                         <div class="alert alert-success">
@@ -56,107 +56,136 @@
                                         @endif
 
                                         <div class="card-body">
-                                        <form method="POST" action="{{ url('project_store') }}" enctype="multipart/form-data">
-    @csrf
 
-    <!-- Project Name -->
-    <div class="form-group">
-        <label for="Project_Name">Project Name</label>
-        <input type="text" id="Project_Name" name="Project_Name" class="form-control" required>
-    </div>
 
-    <!-- Project Logo -->
-    <div class="form-group">
-        <label for="Project_Logo">Project Logo</label>
-        <input type="file" id="Project_Logo" name="Project_Logo" class="form-control-file">
-    </div>
+                                        <div class="container mt-53">
 
-    <!-- Project Symbol -->
-    <div class="form-group">
-        <label for="Project_Symbol">Project Symbol</label>
-        <input type="text" id="Project_Symbol" name="Project_Symbol" class="form-control">
-    </div>
+    <form action="{{url('project_store')}}" method="POST" enctype="multipart/form-data">
+        @csrf
+      <div class="row">
 
-    <!-- Project Type -->
-    <div class="form-group">
-        <label for="Project_Type">Project Type</label>
-        <input type="text" id="Project_Type" name="Project_Type" class="form-control">
-    </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="Project_Name" class="form-label">Project Name</label>
+            <input type="text" class="form-control form-control-sm" id="Project_Name" name="Project_Name" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="Project_Logo" class="form-label">Project Logo URL</label>
+            <input type="file" class="form-control form-control-sm" id="Project_Logo" name="Project_Logo" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="Project_Symbol" class="form-label">Project Symbol</label>
+            <input type="text" class="form-control form-control-sm" id="Project_Symbol" name="Project_Symbol" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="Project_Type" class="form-label">Project Type</label>
+            <input type="text" class="form-control form-control-sm" id="Project_Type" name="Project_Type" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="Project_Domain" class="form-label">Project Domain</label>
+            <input type="text" class="form-control form-control-sm" id="Project_Domain" name="Project_Domain" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+      <div class="col-md-6">
+      <div class="mb-3">
+    <label for="Project_Category" class="form-label">Project Category</label>
+    <select class="form-select form-select-sm" id="Project_Category" name="Project_Category" required>
+        @foreach($project_category as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+        @endforeach
+    </select>
+</div>
+</div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="Project_Launch_Date" class="form-label">Project Launch Date</label>
+            <input type="date" class="form-control form-control-sm" id="Project_Launch_Date" name="Project_Launch_Date" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="Token_Standard" class="form-label">Token Standard</label>
+            <input type="text" class="form-control form-control-sm" id="Token_Standard" name="Token_Standard" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="BlockChain_Plateform" class="form-label">Blockchain Platform</label>
+            <input type="text" class="form-control form-control-sm" id="BlockChain_Plateform" name="BlockChain_Plateform" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="Project_Website" class="form-label">Project Website</label>
+            <input type="url" class="form-control form-control-sm" id="Project_Website" name="Project_Website" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="Project_GitHub_Link" class="form-label">Project GitHub Link</label>
+            <input type="url" class="form-control form-control-sm" id="Project_GitHub_Link" name="Project_GitHub_Link" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="Project_WhitePaper" class="form-label">Project White Paper URL</label>
+            <input type="url" class="form-control form-control-sm" id="Project_WhitePaper" name="Project_WhitePaper" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="Project_Comment" class="form-label">Project Comment</label>
+            <input type="text" class="form-control form-control-sm" id="Project_Comment" name="Project_Comment" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="Project_Comment_Id" class="form-label">Project Comment ID</label>
+            <input type="text" class="form-control form-control-sm" id="Project_Comment_Id" name="Project_Comment_Id" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="Project_Total_Supply" class="form-label">Project Total Supply</label>
+            <input type="text" class="form-control form-control-sm" id="Project_Total_Supply" name="Project_Total_Supply" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="Project_Circulating_Supply" class="form-label">Project Circulating Supply</label>
+            <input type="text" class="form-control form-control-sm" id="Project_Circulating_Supply" name="Project_Circulating_Supply" required>
+          </div>
+        </div>
+      </div>
+      <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 
-    <!-- Project Domain -->
-    <div class="form-group">
-        <label for="Project_Domain">Project Domain</label>
-        <input type="text" id="Project_Domain" name="Project_Domain" class="form-control">
-    </div>
 
-    <!-- Project Category -->
-    <div class="form-group">
-        <label for="Project_Category">Project Category</label>
-        <input type="text" id="Project_Category" name="Project_Category" class="form-control">
-    </div>
-
-    <!-- Project Launch Date -->
-    <div class="form-group">
-        <label for="Project_Launch_Date">Project Launch Date</label>
-        <input type="date" id="Project_Launch_Date" name="Project_Launch_Date" class="form-control">
-    </div>
-
-    <!-- Token Standard -->
-    <div class="form-group">
-        <label for="Token_Standard">Token Standard</label>
-        <input type="text" id="Token_Standard" name="Token_Standard" class="form-control">
-    </div>
-
-    <!-- Blockchain Platform -->
-    <div class="form-group">
-        <label for="BlockChain_Plateform">Blockchain Platform</label>
-        <input type="text" id="BlockChain_Plateform" name="BlockChain_Plateform" class="form-control">
-    </div>
-
-    <!-- Project Website -->
-    <div class="form-group">
-        <label for="Project_Website">Project Website</label>
-        <input type="url" id="Project_Website" name="Project_Website" class="form-control">
-    </div>
-
-    <!-- Project GitHub Link -->
-    <div class="form-group">
-        <label for="Project_GitHub_Link">Project GitHub Link</label>
-        <input type="url" id="Project_GitHub_Link" name="Project_GitHub_Link" class="form-control">
-    </div>
-
-    <!-- Project Whitepaper -->
-    <div class="form-group">
-        <label for="Project_WhitePaper">Project Whitepaper</label>
-        <input type="url" id="Project_WhitePaper" name="Project_WhitePaper" class="form-control">
-    </div>
-
-    <!-- Project Comment -->
-    <div class="form-group">
-        <label for="Project_Comment">Project Comment</label>
-        <textarea id="Project_Comment" name="Project_Comment" class="form-control" rows="3"></textarea>
-    </div>
-
-    <!-- Project Comment Id -->
-    <div class="form-group">
-        <label for="Project_Comment_Id">Project Comment ID</label>
-        <input type="number" id="Project_Comment_Id" name="Project_Comment_Id" class="form-control">
-    </div>
-
-    <!-- Project Total Supply -->
-    <div class="form-group">
-        <label for="Project_Total_Supply">Project Total Supply</label>
-        <input type="number" id="Project_Total_Supply" name="Project_Total_Supply" class="form-control">
-    </div>
-
-    <!-- Project Circulating Supply -->
-    <div class="form-group">
-        <label for="Project_Circulating_Supply">Project Circulating Supply</label>
-        <input type="number" id="Project_Circulating_Supply" name="Project_Circulating_Supply" class="form-control">
-    </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
 
                                         </div>
                                     </div>
@@ -212,7 +241,7 @@
             </div>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="admin_dashboard/vendor/jquery/jquery.min.js"></script>
     <script src="admin_dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('master', function (Blueprint $table) {
-            $table->id('Master_Id');
+            $table->id();
             $table->unsignedBigInteger('Project_Id');
             $table->unsignedBigInteger('Audit_Id');
             $table->unsignedBigInteger('Developer_Id');
@@ -23,17 +23,6 @@ return new class extends Migration
             $table->unsignedBigInteger('Guide_Id');
             $table->unsignedBigInteger('Company_Id');
             $table->timestamps();
-
-            // Define foreign key constraints
-            $table->foreign('Project_Id')->references('id')->on('project_table');
-            $table->foreign('Audit_Id')->references('Audit_Id')->on('audit_tabel');
-            $table->foreign('Developer_Id')->references('Developer_Id')->on('developer_table');
-            $table->foreign('Employer_Id')->references('Employer_Id')->on('employer_table');
-            $table->foreign('Private_invistor_Id')->references('Private_invistor_Id')->on('private_invistor');
-            $table->foreign('Promotor_Id')->references('Promotor_Id')->on('promotor_table');
-            $table->foreign('Blog_Id')->references('Blog_Id')->on('blog_table');
-            $table->foreign('Guide_Id')->references('Guide_Id')->on('guide_table');
-            $table->foreign('Company_Id')->references('Company_Id')->on('company_table');
         });
     }
 
