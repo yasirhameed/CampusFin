@@ -28,4 +28,9 @@ class Project extends Model
         'Project_Total_Supply',
         'Project_Circulating_Supply',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }

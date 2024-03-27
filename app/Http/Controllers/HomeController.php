@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Project;
+use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
 {
@@ -18,7 +19,7 @@ class HomeController extends Controller
     {
 
         $project_category = Category::all();
-        return view('layouts.add_project_home', compact('project_category'));
+        return view('screens.add_project_home', compact('project_category'));
     }
 
 
@@ -71,7 +72,46 @@ class HomeController extends Controller
         // Save the project record
         $project->save();
 
-        return view('layouts.add_project_home')->with('success', 'Project created successfully!');
+        return view('screens.add_project_home')->with('success', 'Project created successfully!');
     }
+
+    public function manage_project_home(Request $request)
+    {
+        // Get all categories
+        $categories = Category::all();
+
+        // Get search query
+        $searchQuery = $request->input('search');
+
+        // Get projects based on the selected category IDs (if filter is applied)
+        $selectedCategoryIds = $request->input('category_id', []);
+
+        // Query projects with eager loading of the category relationship
+        $projectsQuery = Project::with('category')
+            ->where('status', 'approved');
+
+        // Apply search filter if search query exists
+        if ($searchQuery) {
+            $projectsQuery->where('Project_Name', 'like', '%' . $searchQuery . '%');
+        }
+
+        // Apply category filter if selected categories exist
+        if (!empty($selectedCategoryIds)) {
+            $projectsQuery->whereIn('category_id', $selectedCategoryIds);
+        }
+
+        // Paginate the filtered projects
+        $projects = $projectsQuery->paginate(5);
+
+        return view('screens.manage_project_home', compact('categories', 'projects'));
+    }
+
+    public function showPreview($id)
+    {
+
+        $projects = Project::findOrFail($id);
+        return view('screens.blogs_screen', compact('projects'));
+    }
+
 
 }

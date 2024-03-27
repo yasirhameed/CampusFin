@@ -110,7 +110,7 @@
               <li class="dropdown"><a href="#"><span>Project</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="{{url('add_project_home')}}">Add Project</a></li>
-                  <li><a href="#">Manage Project</a></li>
+                  <li><a href="{{url('manage_project_home')}}">Manage Project</a></li>
                   <!-- <li><a href="#">API Testing</a></li>
                   <li><a href="#">Automation Testing</a></li>
                   <li><a href="#">Interview Questions</a></li> -->

@@ -13,6 +13,10 @@ use App\Http\Controllers\GuideController;
 Route::get("/", [HomeController::class, 'index']);
 Route::get("/add_project_home", [HomeController::class, 'add_project_home']);
 Route::post("/project_store_home", [HomeController::class, 'project_store_home']);
+Route::get("/manage_project_home", [HomeController::class, 'manage_project_home']);
+Route::get("/project_preview/{id}", [HomeController::class, 'showPreview']);
+
+
 
 
 
