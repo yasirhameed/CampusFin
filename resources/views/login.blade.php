@@ -13,7 +13,7 @@
         <!-- Sign up form -->
 
         <!-- Sing in  Form -->
-        <section class="sign-in">
+        <section class="sign-in" style="margin-top: -7%;">
             <div class="container">
             @if (session('success'))
                         <div class="alert alert-success">

@@ -3,6 +3,10 @@
 <head>
     <title>Manage Project</title>
     @include('layouts.head')
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <style>
         .centered-pagination-container {
@@ -25,23 +29,29 @@
     <div class="container-fluid mt-3">
         <div class="row">
             <!-- Left Sidebar -->
-            <div class="col-md-2 mt-5">
-                <div class="card">
+            <div class="col-md-2 mt-5" >
+                <div class="card" style="height:400px;">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Guide</h5>
+                        <h5 class="card-title text-center">Filter</h5>
                         <!-- Filter by Category -->
                         <div class="list-group mt-3">
-                            <form action="" method="GET">
-                                @foreach ($categories as $category)
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="category_id[]" id="category{{ $category->id }}" value="{{ $category->id }}" {{ in_array($category->id, request('category_id', [])) ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="category{{ $category->id }}">
-                                            {{ $category->name }}
-                                        </label>
-                                    </div>
-                                @endforeach
-                                <button type="submit" class="btn btn-primary mt-3">Apply Filter</button>
-                            </form>
+                        <form action="" method="GET">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Categories
+        </button>
+        <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+            @foreach ($categories as $category)
+                <a class="dropdown-item" href="#">
+                    <input type="checkbox" name="category_id[]" id="category{{ $category->id }}" value="{{ $category->id }}" {{ in_array($category->id, request('category_id', [])) ? 'checked' : '' }}>
+                    <label for="category{{ $category->id }}">{{ $category->name }}</label>
+                </a>
+            @endforeach
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Apply Filter</button>
+</form>
+
                         </div>
                     </div>
                 </div>
@@ -60,6 +70,7 @@
         </div>
         <div class="col-auto">
             <button type="submit" class="btn btn-primary">Search</button>
+            <a href="{{url('manage_project_home')}}" class="btn btn-info">Reset</a>
         </div>
     </div>
 </form>
@@ -70,10 +81,17 @@
     @foreach($projects as $project)
     <div class="col-md-4 mt-5">
             <div class="card" style="width: 18rem;">
+                <div class="row">
+                <div class="col-md-6">
                 <img src="img/a.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{$project->Project_Name}}</h5>
+                </div>
+                <div class="col-md-6">
+
+                    <h5 class="card-title mt-5">{{$project->Project_Name}}</h5>
                     <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+
+
+                </div>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Category {{$project->category_id }}</li>

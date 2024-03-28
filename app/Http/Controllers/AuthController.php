@@ -45,14 +45,22 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Authentication successful
-            return redirect()->intended('/admin');
+            $user = Auth::user();
+            if ($user->usertype === 'admin') {
+                // Redirect admin users to the admin dashboard
+                return view('dashboard');
+            } elseif ($user->usertype === 'user') {
+                // Redirect regular users to their dashboard
+                return view('user_dashboard');
+            } else {
+                // Handle other user types or scenarios here
+                return redirect()->intended('/');
+            }
         } else {
             // Authentication failed
             return back()->withErrors(['email' => 'Invalid credentials']);
         }
     }
-
 
 
     public function logout()

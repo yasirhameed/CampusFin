@@ -3,7 +3,7 @@
 
 <head>
 <title>Project List</title>
-    @include("dashboard_layouts.css_link");
+    @include("user_dashboard_layouts.user_css_link");
 
     <style>
         /* Add custom styles for the scrollable table */
@@ -19,7 +19,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include("dashboard_layouts.sidebar")
+        @include("user_dashboard_layouts.user_sidebar")
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -29,7 +29,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                @include("dashboard_layouts.top_navbar")
+                @include("user_dashboard_layouts.user_top_navbar")
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -85,53 +85,39 @@
                                                     <th>Project Total Supply</th>
                                                     <th>Project Circulating Supply</th>
                                                     <th>Status</th>
-                                                    <th>Actions</th>
                                                     </tr>
 
 
                                                     @foreach($projects as $project)
-    <tr>
-        <td>{{ $project->Project_Name }}</td>
-        <td>
-            @if ($project->Project_Logo)
-                <img src="{{ ('products/'. $project->Project_Logo)}} " style="max-width: 100px; max-height: 50px;">
-            @else
-                No image available
-            @endif
-        </td>
-        <td>{{ $project->Project_Symbol }}</td>
-        <td>{{ $project->Project_Type }}</td>
-        <td>{{ $project->Project_Domain }}</td>
-        <td>{{ $project->Project_Category }}</td>
-        <td>{{ $project->Project_Launch_Date }}</td>
-        <td>{{ $project->Token_Standard }}</td>
-        <td>{{ $project->BlockChain_Plateform }}</td>
-        <td>{{ $project->Project_Website }}</td>
-        <td>{{ $project->Project_GitHub_Link }}</td>
-        <td>{{ $project->Project_WhitePaper }}</td>
-        <td>{{ $project->Project_Comment }}</td>
-        <td>{{ $project->Project_Comment_Id }}</td>
-        <td>{{ $project->Project_Total_Supply }}</td>
-        <td>{{ $project->Project_Circulating_Supply }}</td>
-        <td>{{ $project->status }}</td>
-
-        <!-- Delete Button -->
-        <td>
-            <a href="{{ url('delete_project', ['id' => $project->id]) }}" onclick="return confirm('Are you sure you want to delete this project?')">Delete</a>
-        </td>
-
-        <!-- Edit Button -->
-        <td>
-            <a href="{{ url('edit_project', ['id' => $project->id]) }}">Edit</a>
-        </td>
-
-        <!-- Approve Button -->
-        <td>
-            <a href="{{ url('approve_project', ['id' => $project->id]) }}">Approve</a>
-        </td>
-    </tr>
-@endforeach
-
+                                                    @if($project->user_id === auth()->id())
+                                                    <tr>
+                                                        <td>{{ $project->Project_Name }}</td>
+                                                          <td>
+                                                        @if ($project->Project_Logo)
+                                                            <img src="{{ ('products/'. $project->Project_Logo)}} " style="max-width: 100px; max-height: 50px;">
+                                                        @else
+                                                            No image available
+                                                        @endif
+                                                    </td>
+                                                        <td>{{ $project->Project_Symbol }}</td>
+                                                        <td>{{ $project->Project_Type }}</td>
+                                                        <td>{{ $project->Project_Domain }}</td>
+                                                        <td>{{ $project->Project_Category }}</td>
+                                                        <td>{{ $project->Project_Launch_Date }}</td>
+                                                        <td>{{ $project->Token_Standard }}</td>
+                                                        <td>{{ $project->BlockChain_Plateform }}</td>
+                                                        <td>{{ $project->Project_Website }}</td>
+                                                        <td>{{ $project->Project_GitHub_Link }}</td>
+                                                        <td>{{ $project->Project_WhitePaper }}</td>
+                                                        <td>{{ $project->Project_Comment }}</td>
+                                                        <td>{{ $project->Project_Comment_Id }}</td>
+                                                        <td>{{ $project->Project_Total_Supply }}</td>
+                                                        <td>{{ $project->Project_Circulating_Supply }}</td>
+                                                        <td>{{ $project->status }}</td>
+                                                        <!-- Add more columns as needed -->
+                                                    </tr>
+                                                    @endif
+                                                    @endforeach
                                                 </table>
                                             </div>
                                             <div class="d-flex justify-content-center mt-4">

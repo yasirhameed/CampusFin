@@ -10,7 +10,7 @@
     <div class="main">
 
         <!-- Sign up form -->
-        <section class="signup">
+        <section class="signup" style="margin-top: -9%;">
             <div class="container">
             @if (session('success'))
                         <div class="alert alert-success">
@@ -63,7 +63,7 @@
                         <!-- <a href="#" class="signup-image-link">I am already member</a>
                         <br> -->
                         <span><h4>Rights</h4></span>
-                        <a href="" class="btn btn-primary" style="">Guide</a>
+                        <a href="" class="btn btn-primary">Guide</a>
                         <a href="" class="btn btn-primary">Blog</a>
                         <a href="" class="btn btn-primary">Project</a>
 

@@ -7,6 +7,7 @@ use App\Models\Employee;
 use App\Models\User;
 use App\Models\Project;
 use App\Models\Category;
+use App\Models\Developer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -14,14 +15,15 @@ class AdminController extends Controller
 {
     public function index()
     {
+
         return view("dashboard");
     }
 
     public function add_project()
-{
-    $project_category = Category::all();
-    return view('dashboard_layouts.add_project', compact('project_category'));
-}
+    {
+        $project_category = Category::all();
+        return view('dashboard_layouts.add_project', compact('project_category'));
+    }
 
     public function project_store(Request $request)
     {
@@ -85,21 +87,21 @@ class AdminController extends Controller
         $query = Project::query();
         if (!empty($searchQuery)) {
             $query->where('Project_Name', 'like', '%' . $searchQuery . '%')
-                  ->orWhere('Project_Logo', 'like', '%' . $searchQuery . '%')
-                  ->orWhere('Project_Symbol', 'like', '%' . $searchQuery . '%')
-                  ->orWhere('Project_Type', 'like', '%' . $searchQuery . '%')
-                  ->orWhere('Project_Domain', 'like', '%' . $searchQuery . '%')
-                  ->orWhere('Project_Category', 'like', '%' . $searchQuery . '%')
-                  ->orWhere('Project_Launch_Date', 'like', '%' . $searchQuery . '%')
-                  ->orWhere('Token_Standard', 'like', '%' . $searchQuery . '%')
-                  ->orWhere('BlockChain_Plateform', 'like', '%' . $searchQuery . '%')
-                  ->orWhere('Project_Website', 'like', '%' . $searchQuery . '%')
-                  ->orWhere('Project_GitHub_Link', 'like', '%' . $searchQuery . '%')
-                  ->orWhere('Project_WhitePaper', 'like', '%' . $searchQuery . '%')
-                  ->orWhere('Project_Comment', 'like', '%' . $searchQuery . '%')
-                  ->orWhere('Project_Comment_Id', 'like', '%' . $searchQuery . '%')
-                  ->orWhere('Project_Total_Supply', 'like', '%' . $searchQuery . '%')
-                  ->orWhere('Project_Circulating_Supply', 'like', '%' . $searchQuery . '%');
+                ->orWhere('Project_Logo', 'like', '%' . $searchQuery . '%')
+                ->orWhere('Project_Symbol', 'like', '%' . $searchQuery . '%')
+                ->orWhere('Project_Type', 'like', '%' . $searchQuery . '%')
+                ->orWhere('Project_Domain', 'like', '%' . $searchQuery . '%')
+                ->orWhere('Project_Category', 'like', '%' . $searchQuery . '%')
+                ->orWhere('Project_Launch_Date', 'like', '%' . $searchQuery . '%')
+                ->orWhere('Token_Standard', 'like', '%' . $searchQuery . '%')
+                ->orWhere('BlockChain_Plateform', 'like', '%' . $searchQuery . '%')
+                ->orWhere('Project_Website', 'like', '%' . $searchQuery . '%')
+                ->orWhere('Project_GitHub_Link', 'like', '%' . $searchQuery . '%')
+                ->orWhere('Project_WhitePaper', 'like', '%' . $searchQuery . '%')
+                ->orWhere('Project_Comment', 'like', '%' . $searchQuery . '%')
+                ->orWhere('Project_Comment_Id', 'like', '%' . $searchQuery . '%')
+                ->orWhere('Project_Total_Supply', 'like', '%' . $searchQuery . '%')
+                ->orWhere('Project_Circulating_Supply', 'like', '%' . $searchQuery . '%');
         }
 
         // Paginate the filtered projects
@@ -108,4 +110,84 @@ class AdminController extends Controller
         return view('dashboard_layouts.project_list', compact('projects'));
     }
 
+    public function delete_project($id)
+    {
+        $projects = Project::find($id);
+
+        $projects->delete();
+
+        return redirect()->back()->with('success', 'Product deleted successfully.');
+    }
+
+    public function approve($id)
+    {
+        $project = Project::findOrFail($id);
+        $project->status = 'approved';
+        $project->save();
+
+        // Redirect or return a response as needed
+        return redirect()->back()->with('success', 'Project approved successfully');
+    }
+
+    public function show_category()
+    {
+        $category = Category::all();
+
+        return view('dashboard_layouts.show_category', compact('category'));
+    }
+
+
+    public function add_category(Request $request)
+    {
+        $category = new Category();
+
+        $category->name = $request->name;
+        $category->save();
+
+        // return view('dashboard_layouts.show_category')->with('success', 'category add successfully');
+        return redirect()->back()->with('success', 'category add successfully');
+    }
+
+    public function delete_category($id)
+    {
+        $category = Category::find($id);
+        $category->delete();
+        return redirect()->back()->with('success', 'category delete successfully');
+    }
+
+    // Developer Work
+
+
+    public function developer()
+    {
+        $Developers = Developer::all();
+
+        return view('dashboard_layouts.developer', compact('Developers'));
+    }
+
+    public function add_developer(Request $request)
+
+    {
+        $Developers = new Developer();
+
+        $Developers->Developer_Name = $request->Developer_Name;
+        $Developers->Developer_Website = $request->Developer_Website;
+        $Developers->Developer_GitHub_Link = $request->Developer_GitHub_Link;
+        $Developers->Developer_Social_Media = $request->Developer_Social_Media;
+        $Developers->Developer_Previous_Project = $request->Developer_Previous_Project;
+        $Developers->Developer_Comments_Id = $request->Developer_Comments_Id;
+        $Developers->Developer_Comments = $request->Developer_Comments;
+
+        $Developers->save();
+        return redirect()->back()->with('success', 'category delete successfully');
+    }
+
+    public function delete_developer($id)
+    {
+        $Developers = Developer::find($id);
+        $Developers->delete();
+
+        return redirect()->back()->with('success', 'Developer delete successfully');
+
+    }
 }
