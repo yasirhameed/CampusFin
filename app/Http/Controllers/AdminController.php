@@ -2,20 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Employee;
-use App\Models\User;
 use App\Models\Project;
 use App\Models\Category;
+use App\Models\Promotor;
 use App\Models\Developer;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function index()
     {
-
         return view("dashboard");
     }
 
@@ -27,9 +23,7 @@ class AdminController extends Controller
 
     public function project_store(Request $request)
     {
-        // Validate the request data if needed
 
-        // Validate the Project_Logo file
         $request->validate([
             'Project_Logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust validation rules as needed
         ]);
@@ -48,11 +42,6 @@ class AdminController extends Controller
             return redirect()->back()->with('error', 'No image file uploaded');
         }
 
-
-
-        // dd($project_category);
-
-        // Create a new instance of Project
         $project = new Project;
         $project->Project_Name = $request->Project_Name;
         $project->Project_Logo = '/products/' . $imageName; // Save the file path in the database
@@ -73,6 +62,7 @@ class AdminController extends Controller
 
         // Save the project record
         $project->save();
+
 
         return redirect()->route('add_project')->with('success', 'Project created successfully!');
     }
@@ -129,65 +119,7 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'Project approved successfully');
     }
 
-    public function show_category()
-    {
-        $category = Category::all();
-
-        return view('dashboard_layouts.show_category', compact('category'));
-    }
+    
 
 
-    public function add_category(Request $request)
-    {
-        $category = new Category();
-
-        $category->name = $request->name;
-        $category->save();
-
-        // return view('dashboard_layouts.show_category')->with('success', 'category add successfully');
-        return redirect()->back()->with('success', 'category add successfully');
-    }
-
-    public function delete_category($id)
-    {
-        $category = Category::find($id);
-        $category->delete();
-        return redirect()->back()->with('success', 'category delete successfully');
-    }
-
-    // Developer Work
-
-
-    public function developer()
-    {
-        $Developers = Developer::all();
-
-        return view('dashboard_layouts.developer', compact('Developers'));
-    }
-
-    public function add_developer(Request $request)
-
-    {
-        $Developers = new Developer();
-
-        $Developers->Developer_Name = $request->Developer_Name;
-        $Developers->Developer_Website = $request->Developer_Website;
-        $Developers->Developer_GitHub_Link = $request->Developer_GitHub_Link;
-        $Developers->Developer_Social_Media = $request->Developer_Social_Media;
-        $Developers->Developer_Previous_Project = $request->Developer_Previous_Project;
-        $Developers->Developer_Comments_Id = $request->Developer_Comments_Id;
-        $Developers->Developer_Comments = $request->Developer_Comments;
-
-        $Developers->save();
-        return redirect()->back()->with('success', 'category delete successfully');
-    }
-
-    public function delete_developer($id)
-    {
-        $Developers = Developer::find($id);
-        $Developers->delete();
-
-        return redirect()->back()->with('success', 'Developer delete successfully');
-
-    }
 }

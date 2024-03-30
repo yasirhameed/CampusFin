@@ -2,15 +2,8 @@
 <html lang="en">
 
 <head>
-<title>Project List</title>
-    @include("dashboard_layouts.css_link");
-
-    <style>
-        /* Add custom styles for the scrollable table */
-        .scrollable-table {
-            overflow-x: auto;
-        }
-    </style>
+    <title>Add Category</title>
+@include("dashboard_layouts.css_link");
 </head>
 
 <body id="page-top">
@@ -37,7 +30,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Project List</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Add Project</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
@@ -48,7 +41,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
                                     <div class="card">
-                                        <div class="card-header">Create New Project</div>
+                                        <div class="card-header">Add Project</div>
 
                                         @if(session('success'))
                                         <div class="alert alert-success">
@@ -63,79 +56,59 @@
                                         @endif
 
                                         <div class="card-body">
-                                            <!-- Add the scrollable div -->
-                                            <div class="scrollable-table">
-                                                <table class="table table-sm table-boardered">
-                                                   <tr>
-                                                   <th>Project Name</th>
-                                                    <th>Project Logo</th>
-                                                    <th>Project Symbol</th>
-                                                    <th>Project Type</th>
-                                                    <th>Project Domain</th>
-                                                    <th>Project Category</th>
-                                                    <th>Project Launch Date</th>
-                                                    <th>Token Standard</th>
-                                                    <th>Blockchain Platform</th>
-                                                    <th>Project Website</th>
-                                                    <th>Project GitHub Link</th>
-                                                    <th>Project White Paper URL</th>
-                                                    <th>Project Comment</th>
-                                                    <th>Project Comment ID</th>
-                                                    <th>Project Total Supply</th>
-                                                    <th>Project Circulating Supply</th>
-                                                    <th>Status</th>
-                                                    <th>Actions</th>
-                                                    </tr>
 
 
-                                                    @foreach($projects as $project)
-    <tr>
-        <td>{{ $project->Project_Name }}</td>
-        <td>
-            @if ($project->Project_Logo)
-                <img src="{{ ('products/'. $project->Project_Logo)}} " style="max-width: 100px; max-height: 50px;">
-            @else
-                No image available
-            @endif
-        </td>
-        <td>{{ $project->Project_Symbol }}</td>
-        <td>{{ $project->Project_Type }}</td>
-        <td>{{ $project->Project_Domain }}</td>
-        <td>{{ $project->Project_Category }}</td>
-        <td>{{ $project->Project_Launch_Date }}</td>
-        <td>{{ $project->Token_Standard }}</td>
-        <td>{{ $project->BlockChain_Plateform }}</td>
-        <td>{{ $project->Project_Website }}</td>
-        <td>{{ $project->Project_GitHub_Link }}</td>
-        <td>{{ $project->Project_WhitePaper }}</td>
-        <td>{{ $project->Project_Comment }}</td>
-        <td>{{ $project->Project_Comment_Id }}</td>
-        <td>{{ $project->Project_Total_Supply }}</td>
-        <td>{{ $project->Project_Circulating_Supply }}</td>
-        <td>{{ $project->status }}</td>
+                                        <div class="container mt-5">
 
-        <!-- Delete Button -->
-        <td>
-            <a href="{{ url('delete_project', ['id' => $project->id]) }}" onclick="return confirm('Are you sure you want to delete this project?')">Delete</a>
-        </td>
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <form action="{{url('add_promotors')}}" method="POST">
+                                                        @csrf
+                                                        <div class="mb-3">
+                                                            <label for="promotor_name" class="form-label">Promotor Name:</label>
+                                                            <input type="text" class="form-control" id="promotor_name" name="promotor_name" required>
+                                                        </div>
 
-        <!-- Edit Button -->
-        <td>
-            <a href="{{ url('edit_project', ['id' => $project->id]) }}">Edit</a>
-        </td>
+                                                        <div class="mb-3">
+                                                            <label for="promotor_type" class="form-label">Promotor Type:</label>
+                                                            <input type="text" class="form-control" id="promotor_type" name="promotor_type" required>
+                                                        </div>
 
-        <!-- Approve Button -->
-        <td>
-            <a href="{{ url('approve_project', ['id' => $project->id]) }}">Approve</a>
-        </td>
-    </tr>
-@endforeach
+                                                        <div class="mb-3">
+                                                            <label for="promotor_previous_project_id" class="form-label">Promotor Previous Project ID:</label>
+                                                            <input type="number" class="form-control" id="promotor_previous_project_id" name="promotor_previous_project_id">
+                                                        </div>
 
-                                                </table>
+                                                        <div class="mb-3">
+                                                            <label for="promotor_previous_project_name" class="form-label">Promotor Previous Project Name:</label>
+                                                            <input type="text" class="form-control" id="promotor_previous_project_name" name="promotor_previous_project_name">
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="promotor_comment_id" class="form-label">Promotor Comment ID:</label>
+                                                            <input type="number" class="form-control" id="promotor_comment_id" name="promotor_comment_id">
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="promotor_comments" class="form-label">Promotor Comments:</label>
+                                                            <textarea class="form-control" id="promotor_comments" name="promotor_comments"></textarea>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="promotor_wallet_id" class="form-label">Promotor Wallet ID:</label>
+                                                            <input type="number" class="form-control" id="promotor_wallet_id" name="promotor_wallet_id">
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="promotor_wallet_url" class="form-label">Promotor Wallet URL:</label>
+                                                            <input type="text" class="form-control" id="promotor_wallet_url" name="promotor_wallet_url">
+                                                        </div>
+
+                                                        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                                                    </form>
+                                                </div>
                                             </div>
-                                            <div class="d-flex justify-content-center mt-4">
-    {{ $projects->links() }}
-</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -190,7 +163,7 @@
             </div>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="admin_dashboard/vendor/jquery/jquery.min.js"></script>
     <script src="admin_dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

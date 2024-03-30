@@ -3,15 +3,18 @@
 
 <head>
     <title>Add Category</title>
-    @include("dashboard_layouts.css_link");
+@include("dashboard_layouts.css_link");
 </head>
 
 <body id="page-top">
+
     <!-- Page Wrapper -->
     <div id="wrapper">
+
         <!-- Sidebar -->
         @include("dashboard_layouts.sidebar")
         <!-- End of Sidebar -->
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -21,19 +24,25 @@
                 <!-- Topbar -->
                 @include("dashboard_layouts.top_navbar")
                 <!-- End of Topbar -->
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Add Category</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <h1 class="h3 mb-0 text-gray-800">Add Project</h1>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
+
                     <!-- Content Row -->
                     <div class="row">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
                                     <div class="card">
+                                        <div class="card-header">Add Project</div>
+
                                         @if(session('success'))
                                         <div class="alert alert-success">
                                             {{ session('success') }}
@@ -49,33 +58,46 @@
                                         <div class="card-body">
 
 
-                                            <div class="container mt-53">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <table class="table table-bordered table-sm">
-                                                            <tr>
-                                                                <th>id</th>
-                                                                <th>Category Name</th>
-                                                                <th>Action</th>
-                                                            </tr>
-                                                            @foreach($category as $cate)
-                                                            <tr>
-                                                                <td>{{$cate->id}}</td>
-                                                                <td>{{$cate->name}}</td>
-                                                                <td><a href="{{ url('delete_category', $cate->id) }}" class="btn btn-danger" >Delete</a></td>
-                                                            </tr>
+                                        <div class="container mt-5">
 
-                                                            @endforeach
-                                                        </table>
-                                                    </div>
-                                                    <!-- Button trigger modal -->
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <form action="{{url('add_developer')}}" method="post">
+                                                        @csrf
+                                                        <div class="mb-3">
+                                                            <label for="name" class="form-label">Developer_Name</label>
+                                                            <input type="text" class="form-control" id="Developer_Name" name="Developer_Name" required>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="name" class="form-label">Developer_Website</label>
+                                                            <input type="text" class="form-control" id="Developer_Website" name="Developer_Website" required>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="name" class="form-label">Developer_GitHub_Link</label>
+                                                            <input type="text" class="form-control" id="Developer_GitHub_Link" name="Developer_GitHub_Link" required>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="name" class="form-label">Developer_Social_Media</label>
+                                                            <input type="text" class="form-control" id="Developer_Social_Media" name="Developer_Social_Media" required>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="name" class="form-label">Developer_Previous_Project</label>
+                                                            <input type="text" class="form-control" id="Developer_Previous_Project" name="Developer_Previous_Project" required>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="name" class="form-label">Developer_Comments_Id</label>
+                                                            <input type="text" class="form-control" id="Developer_Comments_Id" name="Developer_Comments_Id" required>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="name" class="form-label">Developer_Comments</label>
+                                                            <input type="text" class="form-control" id="Developer_Comments" name="Developer_Comments" required>
+                                                        </div>
+                                                        <input type="submit" name="submit" class="btn btn-primary" id="">
 
-
+                                                    </form>
                                                 </div>
                                             </div>
-
-
-
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +134,8 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">

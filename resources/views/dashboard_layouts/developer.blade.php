@@ -4,6 +4,15 @@
 <head>
     <title>Add Category</title>
     @include("dashboard_layouts.css_link");
+
+
+    <style>
+        /* Add custom styles for the scrollable table */
+        .scrollable-table {
+            overflow-x: auto;
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -39,9 +48,7 @@
                                 <div class="col-md-12">
 
                                     <div class="card">
-                                        <div class="card-header"> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                Add developer
-                                            </button></div>
+                                        <div class="card-header">
 
                                         @if(session('success'))
                                         <div class="alert alert-success">
@@ -54,13 +61,8 @@
                                             {{ session('error') }}
                                         </div>
                                         @endif
-
                                         <div class="card-body">
-
-
-                                            <div class="container mt-53">
-                                                <div class="row">
-                                                    <div class="col-md-6">
+                                            <div class="scrollable-table">
                                                         <table class="table table-bordered table-sm">
                                                             <tr>
                                                                 <th>id</th>
@@ -102,58 +104,8 @@
 
 
                                                     <!-- Modal -->
-                                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Add Developer</h5>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <form action="{{url('add_developer')}}" method="post">
-                                                                        @csrf
-                                                                        <div class="mb-3">
-                                                                            <label for="name" class="form-label">Developer_Name</label>
-                                                                            <input type="text" class="form-control" id="Developer_Name" name="Developer_Name" required>
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="name" class="form-label">Developer_Website</label>
-                                                                            <input type="text" class="form-control" id="Developer_Website" name="Developer_Website" required>
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="name" class="form-label">Developer_GitHub_Link</label>
-                                                                            <input type="text" class="form-control" id="Developer_GitHub_Link" name="Developer_GitHub_Link" required>
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="name" class="form-label">Developer_Social_Media</label>
-                                                                            <input type="text" class="form-control" id="Developer_Social_Media" name="Developer_Social_Media" required>
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="name" class="form-label">Developer_Previous_Project</label>
-                                                                            <input type="text" class="form-control" id="Developer_Previous_Project" name="Developer_Previous_Project" required>
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="name" class="form-label">Developer_Comments_Id</label>
-                                                                            <input type="text" class="form-control" id="Developer_Comments_Id" name="Developer_Comments_Id" required>
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="name" class="form-label">Developer_Comments</label>
-                                                                            <input type="text" class="form-control" id="Developer_Comments" name="Developer_Comments" required>
-                                                                        </div>
-                                                                        <input type="submit" name="submit" class="btn btn-primary" id="">
 
-                                                                    </form>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
 
-                                                </div>
-                                            </div>
 
 
 

@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/admin')}}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -31,9 +31,36 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Projects</span>
+                    <span>Add Records</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Components:</h6>
+                        <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#projecttypeModal">Project type</a>
+                        <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#projectcategoryModal">Project category</a>
+                        <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#projectdomainModal">Project Domain</a>
+                        <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#projecttakenstandardModal">Taken Standard</a>
+                        <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#blockchainplateform">Block chain plateform</a>
+                        <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#audits">Audits</a>
+                        <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#socialmedia">Social Media</a>
+                        <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#company">Company</a>
+                        <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#developer">Developer</a>
+                        <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#promoter">Promoter</a>
+                        <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#privateinvester">Private Invester</a>
+                        <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#investercompany">Invester Company</a>
+                        <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#promotertype">Promoter Type</a>
+                        <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#walletaddress">Wallet Address</a>
+                        {{-- <a class="collapse-item" href="{{url('list_project')}}">Project List</a> --}}
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#project"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Projects</span>
+                </a>
+                <div id="project" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="{{url('add_project')}}">Add Project</a>
@@ -53,6 +80,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Category</h6>
+                        {{-- <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#exampleModal">Add category</a> --}}
+                        <a class="collapse-item" href="{{url('add_category')}}">Add category</a>
                         <a class="collapse-item" href="{{url('show_category')}}">Show category</a>
 
                     </div>
@@ -68,7 +97,23 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Developer List:</h6>
+                        <a class="collapse-item" href="{{url('add_developer')}}">add developer</a>
                         <a class="collapse-item" href="{{url('developer')}}">Developer List</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#promotorspage"
+                    aria-expanded="true" aria-controls="promotorspage">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>promotors</span>
+                </a>
+                <div id="promotorspage" class="collapse" aria-labelledby="headingPages" data-parent="#promotorspage">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">promotors List:</h6>
+                        <a class="collapse-item" href="{{url('add_promotors')}}">add promotors</a>
+                        <a class="collapse-item" href="{{url('promotors')}}">promotors List</a>
                     </div>
                 </div>
             </li>
@@ -94,8 +139,440 @@
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
             <!-- Sidebar Message -->
-
-
         </ul>
+
+        {{-- models  --}}
+        <div class="modal fade" id="projecttypeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Project type</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="addCategoryForm" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter a project type</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
+                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="projectcategoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Project Category</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="addCategoryForm" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter a project Category</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
+                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="projectdomainModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Project Domain</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="addCategoryForm" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter a project Domain</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
+                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="projecttakenstandardModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Taken Standard</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="addCategoryForm" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter a project Standard</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
+                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="blockchainplateform" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Block chain plateform</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="addCategoryForm" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Block chain plateform</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
+                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="audits" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Audits</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="addCategoryForm" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter audit name</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
+                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="socialmedia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Socail Media</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="addCategoryForm" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Social Media</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
+                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="company" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Company</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="addCategoryForm" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Company Name</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Company website URL</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Company GitHub URL</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Company Social Media</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Coments</label> <br>
+                      {{-- <input type="textarea" class="form-control" id="categoryName" name="categoryName" required> --}}
+                        <textarea name="" id="" cols="30" rows="6"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
+                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="developer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Developer</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="addCategoryForm" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Developer Name</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Developer website URL</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Developer GitHub URL</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Developer Social Media</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Coments</label> <br>
+                      {{-- <input type="textarea" class="form-control" id="categoryName" name="categoryName" required> --}}
+                        <textarea name="" id="" cols="30" rows="6"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
+                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="promoter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Promoter</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="addCategoryForm" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Promoter Name</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Promoter Type</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Promoter wallets</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Coments</label> <br>
+                      {{-- <input type="textarea" class="form-control" id="categoryName" name="categoryName" required> --}}
+                        <textarea name="" id="" cols="30" rows="6"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
+                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="privateinvester" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Private Invester</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="addCategoryForm" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Private Invester Name</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Private Invester Company Name</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Select Private Invester Social Media</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Coments</label> <br>
+                      {{-- <input type="textarea" class="form-control" id="categoryName" name="categoryName" required> --}}
+                        <textarea name="" id="" cols="30" rows="6"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
+                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="investercompany" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Investor Company</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="addCategoryForm" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Investor Company</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Investor Company URL</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Select Company Social Media</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Coments</label> <br>
+                      {{-- <input type="textarea" class="form-control" id="categoryName" name="categoryName" required> --}}
+                        <textarea name="" id="" cols="30" rows="6"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
+                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="modal fade" id="promotertype" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Permoter type</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="addCategoryForm" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Permoter type</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
+                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="modal fade" id="walletaddress" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Wallet Address</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="addCategoryForm" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Wallet Holder Name</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Enter Wallet Holder Category</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="categoryName" class="form-label">Add Wallet Address</label>
+                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
+                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>

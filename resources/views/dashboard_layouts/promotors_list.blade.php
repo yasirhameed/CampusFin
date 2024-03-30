@@ -2,8 +2,14 @@
 <html lang="en">
 
 <head>
-    <title>Add Category</title>
+    <title>promotors list</title>
     @include("dashboard_layouts.css_link");
+    <style>
+        /* Add custom styles for the scrollable table */
+        .scrollable-table {
+            overflow-x: auto;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -21,19 +27,26 @@
                 <!-- Topbar -->
                 @include("dashboard_layouts.top_navbar")
                 <!-- End of Topbar -->
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Add Category</h1>
+                        <h1 class="h3 mb-0 text-gray-800">promotors List</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
+
                     <!-- Content Row -->
                     <div class="row">
                         <div class="container">
+
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
+
                                     <div class="card">
+                                        <div class="card-header">
+
                                         @if(session('success'))
                                         <div class="alert alert-success">
                                             {{ session('success') }}
@@ -49,33 +62,40 @@
                                         <div class="card-body">
 
 
-                                            <div class="container mt-53">
-                                                <div class="row">
-                                                    <div class="col-md-6">
+                                            <div class="scrollable-table">
+
                                                         <table class="table table-bordered table-sm">
                                                             <tr>
                                                                 <th>id</th>
-                                                                <th>Category Name</th>
+                                                                <th>Name</th>
+                                                                <th>Type</th>
+                                                                <th>Previous_Project_Id</th>
+                                                                <th>Previous_Project_Name</th>
+                                                                <th>Comment_Id</th>
+                                                                <th>Comments</th>
+                                                                <th>Wallet_Id</th>
+                                                                <th>Wallet_URL</th>
                                                                 <th>Action</th>
-                                                            </tr>
-                                                            @foreach($category as $cate)
-                                                            <tr>
-                                                                <td>{{$cate->id}}</td>
-                                                                <td>{{$cate->name}}</td>
-                                                                <td><a href="{{ url('delete_category', $cate->id) }}" class="btn btn-danger" >Delete</a></td>
-                                                            </tr>
 
+                                                            </tr>
+                                                            @foreach ($promotors as $promotor)
+                                                            <td>
+                                                                {{$promotor->id}}
+                                                            </td>
+                                                            <td>{{$promotor->Promotor_Name}}</td>
+                                                            <td>{{$promotor->Promotor_Previous_Project_Id}}</td>
+                                                            <td>{{$promotor->Promotor_Previous_Project_Name}}</td>
+                                                            <td>{{$promotor->Promotor_Comment_Id}}</td>
+                                                            <td>{{$promotor->Promotor_Comments}}</td>
+                                                            <td>{{$promotor->Promotor_Wallet_Id}}</td>
+                                                            <td>{{$promotor->Promotor_Wallet_URL}}</td>
+                                                            <tr>
+
+                                                            </tr>
                                                             @endforeach
                                                         </table>
                                                     </div>
                                                     <!-- Button trigger modal -->
-
-
-                                                </div>
-                                            </div>
-
-
-
                                         </div>
                                     </div>
                                 </div>

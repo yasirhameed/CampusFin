@@ -58,7 +58,7 @@
                                         <div class="card-body">
 
 
-                                        <div class="container mt-53">
+                                        <div class="container mt-5">
 
                         <form action="{{url('project_store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -103,7 +103,7 @@
                         <div class="col-md-6">
                         <div class="mb-3">
                         <label for="Project_Category" class="form-label">Project Category</label>
-                        <select class="form-select form-select-sm" id="Project_Category" name="Project_Category" required>
+                        <select class="form-select form-select-sm" id="Project_Category" name="Project_Category">
                             @foreach($project_category as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach

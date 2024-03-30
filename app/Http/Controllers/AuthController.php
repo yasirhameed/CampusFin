@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+
     public function register()
     {
         return view("register");
@@ -16,20 +17,13 @@ class AuthController extends Controller
 
     public function store(Request $request)
     {
-        // Hash the password
         $hashedPassword = Hash::make($request->password);
-
-        // Create a new user instance and fill it with the form data
         $employee = new User();
         $employee->name = $request->name;
         $employee->email = $request->email;
         $employee->phone = $request->phone;
         $employee->password = $hashedPassword;
-
-        // Save the user record to the database
         $employee->save();
-
-        // Redirect back or to a success page
         return redirect()->back()->with('success', 'Employee registered successfully!');
     }
 
@@ -46,10 +40,10 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
-            if ($user->usertype === 'admin') {
+            if ($user->user_type === 'admin') {
                 // Redirect admin users to the admin dashboard
                 return view('dashboard');
-            } elseif ($user->usertype === 'user') {
+            } elseif ($user->user_type === 'user') {
                 // Redirect regular users to their dashboard
                 return view('user_dashboard');
             } else {
@@ -68,5 +62,4 @@ class AuthController extends Controller
         Auth::logout();
         return redirect('/login'); // Redirect to desired page after logout
     }
-
 }
