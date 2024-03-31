@@ -54,139 +54,139 @@
                                             {{ session('error') }}
                                         </div>
                                         @endif
-
                                         <div class="card-body">
+                                        <div class="container ">
+                                            <form>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-4">
+                                                        <label for="projectName" class="form-label">Project Name</label>
+                                                        <input type="text" class="form-control" id="projectName" name="projectName" placeholder="Project Name">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="projectSymbol" class="form-label">Project Symbol</label>
+                                                        <input type="text" class="form-control" id="projectSymbol" name="projectSymbol" placeholder="Project Symbol">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="projectLogo" class="form-label">Project Logo</label>
+                                                        <input type="text" class="form-control" id="projectLogo" name="projectLogo" placeholder="Project Logo">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-4">
+                                                        <label for="selectProjectType" class="form-label">Select Project Type</label>
+                                                        <input type="text" class="form-control" id="selectProjectType" name="selectProjectType" placeholder="Select Project Type">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="selectProjectCategory" class="form-label">Select Project Category</label>
+                                                        <input type="text" class="form-control" id="selectProjectCategory" name="selectProjectCategory" placeholder="Select Project Category">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="selectProjectStandard" class="form-label">Select Project Standard</label>
+                                                        <input type="text" class="form-control" id="selectProjectStandard" name="selectProjectStandard" placeholder="Select Project Standard">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-4">
+                                                        <label for="selectProjectPlatform" class="form-label">Select Project Platform</label>
+                                                        <input type="text" class="form-control" id="selectProjectPlatform" name="selectProjectPlatform" placeholder="Select Project Platform">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="selectProjectDomain" class="form-label">Select Project Domain</label>
+                                                        <input type="text" class="form-control" id="selectProjectDomain" name="selectProjectDomain" placeholder="Select Project Domain">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="projectAuditFile" class="form-label">Project Audit File</label>
+                                                        <input type="text" class="form-control" id="projectAuditFile" name="projectAuditFile" placeholder="Project Audit File">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-4">
+                                                        <label for="projectLaunchDate" class="form-label">Select Project Launch Date</label>
+                                                        <input type="text" class="form-control" id="projectLaunchDate" name="projectLaunchDate" placeholder="Select Project Launch Date">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="projectWebsiteURL" class="form-label">Enter Project Website URL</label>
+                                                        <input type="text" class="form-control" id="projectWebsiteURL" name="projectWebsiteURL" placeholder="Enter Project Website URL">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="projectGitHubURL" class="form-label">Enter Project GitHub URL</label>
+                                                        <input type="text" class="form-control" id="projectGitHubURL" name="projectGitHubURL" placeholder="Enter Project GitHub URL">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-4">
+                                                        <label for="projectTotalSupply" class="form-label">Select Project Total Supply</label>
+                                                        <input type="text" class="form-control" id="projectTotalSupply" name="projectTotalSupply" placeholder="Select Project Total Supply">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="projectCirculatingSupply" class="form-label">Enter Project Circulating Supply</label>
+                                                        <input type="text" class="form-control" id="projectCirculatingSupply" name="projectCirculatingSupply" placeholder="Enter Project Circulating Supply">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="projectWhitepaperURL" class="form-label">Enter Project Whitepaper URL</label>
+                                                        <input type="text" class="form-control" id="projectWhitepaperURL" name="projectWhitepaperURL" placeholder="Enter Project Whitepaper URL">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-4">
+                                                        <label for="selectProjectSocialMedia" class="form-label">Select Project Social Media</label>
+                                                        <input type="text" class="form-control" id="selectProjectSocialMedia" name="selectProjectSocialMedia" placeholder="Select Project Social Media">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="enterSocialMediaURL" class="form-label">Enter Social Media URL</label>
+                                                        <input type="text" class="form-control" id="enterSocialMediaURL" name="enterSocialMediaURL" placeholder="Enter Social Media URL">
+                                                    </div>
+                                                </div>
+                                                <h3>Developer Information</h3>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-4">
+                                                        <label for="selectDeveloper" class="form-label">Select Developer</label>
+                                                        <input type="text" class="form-control" id="selectDeveloper" name="selectDeveloper" placeholder="Select Developer">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="selectCompany" class="form-label">Select Company</label>
+                                                        <input type="text" class="form-control" id="selectCompany" name="selectCompany" placeholder="Select Company">
+                                                    </div>
+                                                </div>
+                                                <h3>Promoter Information</h3>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-4">
+                                                        <label for="selectPromoterName" class="form-label">Select Promoter Name</label>
+                                                        <input type="text" class="form-control" id="selectPromoterName" name="selectPromoterName" placeholder="Select Promoter Name">
+                                                    </div>
+                                                </div>
+                                                <h3>Private Investor Information</h3>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-4">
+                                                        <label for="selectPrivateInvestor" class="form-label">Select Private Investor</label>
+                                                        <input type="text" class="form-control" id="selectPrivateInvestor" name="selectPrivateInvestor" placeholder="Select Private Investor">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="privateInvestorTokenRelease" class="form-label">Private Investor Token Release</label>
+                                                        <input type="text" class="form-control" id="privateInvestorTokenRelease" name="privateInvestorTokenRelease" placeholder="Private Investor Token Release">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-4">
+                                                        <label for="radioFull">Full</label>
+                                                        <input type="radio" class="form-check-input" id="radioFull" name="radioInvestorRelease" value="full">
+                                                        <label for="radioPartial">Partial</label>
+                                                        <input type="radio" class="form-check-input" id="radioPartial" name="radioInvestorRelease" value="partial">
+                                                        <label for="radioNo">No</label>
+                                                        <input type="radio" class="form-check-input" id="radioNo" name="radioInvestorRelease" value="no">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-4">
+                                                        <label for="comment" class="form-label">Comment</label>
+                                                        <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="Enter Comment"></textarea>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            </form>
 
 
-                                        <div class="container mt-5">
-
-                        <form action="{{url('project_store')}}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                        <div class="row">
-
-                            <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="Project_Name" class="form-label">Project Name</label>
-                                <input type="text" class="form-control form-control-sm" id="Project_Name" name="Project_Name" required>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="Project_Logo" class="form-label">Project Logo URL</label>
-                                <input type="file" class="form-control form-control-sm" id="Project_Logo" name="Project_Logo" required>
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="Project_Symbol" class="form-label">Project Symbol</label>
-                                <input type="text" class="form-control form-control-sm" id="Project_Symbol" name="Project_Symbol" required>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="Project_Type" class="form-label">Project Type</label>
-                                <input type="text" class="form-control form-control-sm" id="Project_Type" name="Project_Type" required>
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="Project_Domain" class="form-label">Project Domain</label>
-                                <input type="text" class="form-control form-control-sm" id="Project_Domain" name="Project_Domain" required>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <div class="col-md-6">
-                        <div class="mb-3">
-                        <label for="Project_Category" class="form-label">Project Category</label>
-                        <select class="form-select form-select-sm" id="Project_Category" name="Project_Category">
-                            @foreach($project_category as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    </div>
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="Project_Launch_Date" class="form-label">Project Launch Date</label>
-            <input type="date" class="form-control form-control-sm" id="Project_Launch_Date" name="Project_Launch_Date" required>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="Token_Standard" class="form-label">Token Standard</label>
-            <input type="text" class="form-control form-control-sm" id="Token_Standard" name="Token_Standard" required>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="BlockChain_Plateform" class="form-label">Blockchain Platform</label>
-            <input type="text" class="form-control form-control-sm" id="BlockChain_Plateform" name="BlockChain_Plateform" required>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="Project_Website" class="form-label">Project Website</label>
-            <input type="url" class="form-control form-control-sm" id="Project_Website" name="Project_Website" required>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="Project_GitHub_Link" class="form-label">Project GitHub Link</label>
-            <input type="url" class="form-control form-control-sm" id="Project_GitHub_Link" name="Project_GitHub_Link" required>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="Project_WhitePaper" class="form-label">Project White Paper URL</label>
-            <input type="url" class="form-control form-control-sm" id="Project_WhitePaper" name="Project_WhitePaper" required>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="Project_Comment" class="form-label">Project Comment</label>
-            <input type="text" class="form-control form-control-sm" id="Project_Comment" name="Project_Comment" required>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="Project_Comment_Id" class="form-label">Project Comment ID</label>
-            <input type="text" class="form-control form-control-sm" id="Project_Comment_Id" name="Project_Comment_Id" required>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="Project_Total_Supply" class="form-label">Project Total Supply</label>
-            <input type="text" class="form-control form-control-sm" id="Project_Total_Supply" name="Project_Total_Supply" required>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="Project_Circulating_Supply" class="form-label">Project Circulating Supply</label>
-            <input type="text" class="form-control form-control-sm" id="Project_Circulating_Supply" name="Project_Circulating_Supply" required>
-          </div>
-        </div>
-      </div>
-      <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
-
-
-
+                                        </div>
                                         </div>
                                     </div>
                                 </div>

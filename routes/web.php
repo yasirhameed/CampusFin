@@ -6,9 +6,20 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AuditController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\PromoterController;
 use App\Http\Controllers\developerController;
-use App\Http\Controllers\promotorsController;
+use App\Http\Controllers\SocialMediaController;
+use App\Http\Controllers\PromoterTypeController;
+use App\Http\Controllers\ProjectDomainController;
+use App\Http\Controllers\TakenStandardController;
+use App\Http\Controllers\WalletAddressController;
+use App\Http\Controllers\InvestorCompanyController;
+use App\Http\Controllers\PrivateInvestorController;
+use App\Http\Controllers\BlockchainPlatformController;
+use App\Http\Controllers\submodules\ProjectTypeController;
+
 
 // homepage
 Route::get("/", [HomeController::class, 'index']);
@@ -39,21 +50,31 @@ Route::get('/list_project', [AdminController::class, 'project_list'])->name('lis
 Route::get('/delete_project/{id}', [AdminController::class, 'delete_project'])->name('delete_project');
 Route::get('/approve_project/{id}', [AdminController::class, 'approve'])->name('approve_project');
 
-// category routes
 
-Route::get('/show_category', [CategoryController::class, 'show_category'])->name('show_category');
-Route::get('/add_category', [CategoryController::class, 'category'])->name('add_category');
-Route::post('/add_category', [CategoryController::class, 'add_category'])->name('add_category');
-Route::get('/delete_category/{id}', [CategoryController::class, 'delete_category'])->name('delete_category');
+// Sub moduls routes
 
-// developet  routes
+Route::post('/project-type', [ProjectTypeController::class, 'store'])->name('project-type.store');
 
-Route::get('/developer', [developerController::class, 'developer_list'])->name('developer');
-Route::get('/add_developer', [developerController::class, 'developer'])->name('add_developer');
-Route::post('/add_developer', [developerController::class, 'add_developer'])->name('add_developer');
-Route::get('/delete_developer/{id}', [developerController::class, 'delete_developer'])->name('delete_developer');
+Route::post('/project-domains', [ProjectDomainController::class, 'store'])->name('project-domains.store');
 
+Route::Post('/taken_standard', [TakenStandardController::class, 'store']);
 
-Route::get('/promotors', [promotorsController::class, 'promotors_list'])->name('promotors');
-Route::get('/add_promotors', [promotorsController::class, 'promotors'])->name('add_promotors');
-Route::post('/add_promotors', [promotorsController::class, 'add_promotors'])->name('add_promotors');
+Route::post('/blockchain-platform', [BlockchainPlatformController::class, 'store'])->name('blockchain.platform.store');
+
+Route::post('/audits', [AuditController::class, 'store'])->name('audits.store');
+
+Route::post('/social-media', [SocialMediaController::class, 'store'])->name('social-media.store');
+
+Route::post('/companies', [CompanyController::class, 'store'])->name('companies.store');
+
+Route::post('/developers', [DeveloperController::class, 'store'])->name('developers.store');
+
+Route::post('/promoters', [PromoterController::class, 'store'])->name('promoters.store');
+
+Route::post('/private-investors', [PrivateInvestorController::class, 'store'])->name('private_investors.store');
+
+Route::post('/investor-companies', [InvestorCompanyController::class, 'store'])->name('investor_companies.store');
+
+Route::post('/promoter-types', [PromoterTypeController::class, 'store'])->name('promoter_types.store');
+
+Route::post('/wallet-addresses', [WalletAddressController::class, 'store'])->name('wallet_addresses.store');

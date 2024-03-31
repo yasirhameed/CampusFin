@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Promotor extends Model
+class InvestorCompany extends Model
 {
     use HasFactory;
-    protected $table = 'promoters';
-
     protected $fillable = [
-        'promoterName',
-        'promoterType',
-        'promoterWallets',
+        'name',
+        'url',
+        'social_media',
         'comments',
     ];
 }

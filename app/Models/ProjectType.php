@@ -5,15 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Promotor extends Model
+class  ProjectType extends Model
 {
     use HasFactory;
-    protected $table = 'promoters';
+    protected $table = 'project_types';
 
     protected $fillable = [
-        'promoterName',
-        'promoterType',
-        'promoterWallets',
-        'comments',
+        'categoryName'
     ];
 }

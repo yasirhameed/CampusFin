@@ -28,12 +28,12 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#submodules"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Add Records</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="submodules" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#projecttypeModal">Project type</a>
@@ -80,7 +80,6 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Category</h6>
-                        {{-- <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#exampleModal">Add category</a> --}}
                         <a class="collapse-item" href="{{url('add_category')}}">Add category</a>
                         <a class="collapse-item" href="{{url('show_category')}}">Show category</a>
 
@@ -143,6 +142,8 @@
         </ul>
 
         {{-- models  --}}
+
+        {{-- project type  --}}
         <div class="modal fade" id="projecttypeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -151,17 +152,17 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form id="addCategoryForm" method="POST">
+                  <form id="addCategoryForm" action="{{url('project-type')}}" method="POST">
                     @csrf
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter a project type</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter a project type</label>
+                      <input type="text" class="form-control"  name="categoryName" required>
                     </div>
                   </form>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
-                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+                    <button type="submit" name="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </div>
@@ -176,17 +177,17 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form id="addCategoryForm" method="POST">
+                  <form id="addCategoryForm" action="{{url('project-category')}}" method="POST">
                     @csrf
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter a project Category</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter a project Category</label>
+                      <input type="text" class="form-control"  name="categoryName" required>
                     </div>
                   </form>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
-                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+                    <button type="submit" name="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </div>
@@ -201,22 +202,26 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form id="addCategoryForm" method="POST">
+                  <form  action="{{url('project-domains')}}" method="POST">
                     @csrf
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter a project Domain</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label class="form-label">Enter a project Domain</label>
+                      <input type="text" class="form-control"  name="domainName" required>
                     </div>
-                  </form>
+                    <br>
+                    <button type="submit" name="submit" class="btn btn-primary">Add</button>
+
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
-                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </div>
+            </form>
             </div>
           </div>
+
+          {{-- taken satandard  --}}
 
           <div class="modal fade" id="projecttakenstandardModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -226,17 +231,18 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form id="addCategoryForm" method="POST">
+                  <form  action="{{url('taken_standard')}}"  method="POST">
                     @csrf
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter a project Standard</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter a project Standard</label>
+                      <input type="text" class="form-control" id="" name="name" required>
                     </div>
+                    <button type="submit" name="submit" class="btn btn-primary">Add</button>
                   </form>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
-                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </div>
@@ -251,23 +257,24 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form id="addCategoryForm" method="POST">
+                  <form action="{{url('blockchain-platform')}}" method="POST">
                     @csrf
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Block chain plateform</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Block chain plateform</label>
+                      <input type="text" class="form-control"  name="name" required>
                     </div>
+                    <button type="submit"  class="btn btn-primary">Add</button>
                   </form>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
-                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </div>
             </div>
           </div>
-
+{{-- Audit  --}}
           <div class="modal fade" id="audits" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -276,22 +283,24 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form id="addCategoryForm" method="POST">
+                  <form action="{{url('audits')}}" method="POST">
                     @csrf
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter audit name</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter audit name</label>
+                      <input type="text" class="form-control"  name="audits_name" required>
                     </div>
+                    <button type="submit" name="submit" class="btn btn-primary">Add</button>
                   </form>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
-                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </div>
             </div>
           </div>
+
+{{-- social media  --}}
 
           <div class="modal fade" id="socialmedia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -301,22 +310,25 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form id="addCategoryForm" method="POST">
+                  <form action="{{url('social-media')}}" method="POST">
                     @csrf
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Social Media</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Social Media</label>
+                      <input type="text" class="form-control"  name="social_media_name" required>
                     </div>
+                    <button type="submit" name="submit" class="btn btn-primary">Add</button>
+
                   </form>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
-                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </div>
             </div>
           </div>
+
+          {{-- company  --}}
 
           <div class="modal fade" id="company" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -326,39 +338,40 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form id="addCategoryForm" method="POST">
+                  <form action="{{url('companies')}}" method="POST">
                     @csrf
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Company Name</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Company Name</label>
+                      <input type="text" class="form-control"  name="name" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Company website URL</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Company website URL</label>
+                      <input type="text" class="form-control"  name="website_url" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Company GitHub URL</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Company GitHub URL</label>
+                      <input type="text" class="form-control"  name="github_url" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Company Social Media</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Company Social Media</label>
+                      <input type="text" class="form-control"  name="social_media" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Coments</label> <br>
-                      {{-- <input type="textarea" class="form-control" id="categoryName" name="categoryName" required> --}}
-                        <textarea name="" id="" cols="30" rows="6"></textarea>
+                      <label  class="form-label">Coments</label> <br>
+                        <textarea name="comments" id="" cols="30" rows="6"></textarea>
                     </div>
+                    <button type="submit" name="submit" class="btn btn-primary">Add</button>
                   </form>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
-                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </div>
             </div>
           </div>
+
+          {{-- developer  --}}
 
           <div class="modal fade" id="developer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -368,39 +381,42 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form id="addCategoryForm" method="POST">
+                  <form action="{{url('developers')}}" method="POST">
                     @csrf
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Developer Name</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Developer Name</label>
+                      <input type="text" class="form-control"  name="name" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Developer website URL</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Developer website URL</label>
+                      <input type="text" class="form-control"  name="website_url" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Developer GitHub URL</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Developer GitHub URL</label>
+                      <input type="text" class="form-control"  name="github_url" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Developer Social Media</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Developer Social Media</label>
+                      <input type="text" class="form-control"  name="social_media" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Coments</label> <br>
-                      {{-- <input type="textarea" class="form-control" id="categoryName" name="categoryName" required> --}}
-                        <textarea name="" id="" cols="30" rows="6"></textarea>
+                      <label  class="form-label">Coments</label> <br>
+                      {{-- <input type="textarea" class="form-control"  name="categoryName" required> --}}
+                        <textarea name="comments" id="" cols="30" rows="6"></textarea>
                     </div>
+                    <button type="submit" name="submit" class="btn btn-primary">Add</button>
                   </form>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
-                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </div>
             </div>
           </div>
+
+          {{-- promoter  --}}
 
           <div class="modal fade" id="promoter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -410,35 +426,39 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form id="addCategoryForm" method="POST">
+                  <form action="{{url('promoters')}}"  method="POST">
                     @csrf
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Promoter Name</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Promoter Name</label>
+                      <input type="text" class="form-control"  name="name" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Promoter Type</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Promoter Type</label>
+                      <input type="text" class="form-control"  name="type" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Promoter wallets</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Promoter wallets</label>
+                      <input type="text" class="form-control"  name="wallets" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Coments</label> <br>
-                      {{-- <input type="textarea" class="form-control" id="categoryName" name="categoryName" required> --}}
-                        <textarea name="" id="" cols="30" rows="6"></textarea>
+                      <label  class="form-label">Coments</label> <br>
+                      {{-- <input type="textarea" class="form-control"  name="categoryName" required> --}}
+                        <textarea name="comments" id="" cols="30" rows="6"></textarea>
                     </div>
+                    <button type="submit" name="submit" class="btn btn-primary">Add</button>
                   </form>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
-                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </div>
             </div>
           </div>
+
+
+          {{-- private incerster  --}}
 
           <div class="modal fade" id="privateinvester" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -448,35 +468,38 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form id="addCategoryForm" method="POST">
+                  <form action="{{url('private-investors')}}" method="POST">
                     @csrf
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Private Invester Name</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Private Invester Name</label>
+                      <input type="text" class="form-control"  name="name" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Private Invester Company Name</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Private Invester Company Name</label>
+                      <input type="text" class="form-control"  name="company_name" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Select Private Invester Social Media</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Select Private Invester Social Media</label>
+                      <input type="text" class="form-control"  name="social_media" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Coments</label> <br>
-                      {{-- <input type="textarea" class="form-control" id="categoryName" name="categoryName" required> --}}
-                        <textarea name="" id="" cols="30" rows="6"></textarea>
+                      <label  class="form-label">Coments</label> <br>
+                      {{-- <input type="textarea" class="form-control"  name="categoryName" required> --}}
+                        <textarea name="comments" id="" cols="30" rows="6"></textarea>
                     </div>
+                    <button type="submit" name="submit" class="btn btn-primary">Add</button>
                   </form>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
-                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </div>
             </div>
           </div>
+
+          {{-- investor company  --}}
 
           <div class="modal fade" id="investercompany" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -486,30 +509,30 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form id="addCategoryForm" method="POST">
+                  <form action="{{url('investor-companies')}}" method="POST">
                     @csrf
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Investor Company</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Investor Company</label>
+                      <input type="text" class="form-control"  name="name" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Investor Company URL</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Investor Company URL</label>
+                      <input type="text" class="form-control"  name="url" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Select Company Social Media</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Select Company Social Media</label>
+                      <input type="text" class="form-control"  name="social_media" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Coments</label> <br>
-                      {{-- <input type="textarea" class="form-control" id="categoryName" name="categoryName" required> --}}
-                        <textarea name="" id="" cols="30" rows="6"></textarea>
+                      <label  class="form-label">Coments</label> <br>
+                      {{-- <input type="textarea" class="form-control"  name="categoryName" required> --}}
+                        <textarea name="comments" id="" cols="30" rows="6"></textarea>
                     </div>
+                    <button type="submit" name="submit" class="btn btn-primary">Add</button>
                   </form>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
-                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </div>
@@ -517,6 +540,7 @@
           </div>
 
 
+          {{-- Permoter type  --}}
 
           <div class="modal fade" id="promotertype" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -526,23 +550,24 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form id="addCategoryForm" method="POST">
+                  <form action="{{url('promoter-types')}}" method="POST">
                     @csrf
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Permoter type</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Permoter type</label>
+                      <input type="text" class="form-control"  name="name" required>
                     </div>
+                    <button type="submit" name="submit" class="btn btn-primary">Add</button>
                   </form>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
-                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </div>
             </div>
           </div>
 
+          {{-- wallert address  --}}
 
           <div class="modal fade" id="walletaddress" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -552,25 +577,26 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form id="addCategoryForm" method="POST">
+                  <form action="{{url('wallet-addresses')}}"  method="POST" >
                     @csrf
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Wallet Holder Name</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Wallet Holder Name</label>
+                      <input type="text" class="form-control"  name="holder_name" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Enter Wallet Holder Category</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Enter Wallet Holder Category</label>
+                      <input type="text" class="form-control"  name="holder_category" required>
                     </div>
                     <div class="mb-3">
-                      <label for="categoryName" class="form-label">Add Wallet Address</label>
-                      <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                      <label  class="form-label">Add Wallet Address</label>
+                      <input type="text" class="form-control"  name="address" required>
                     </div>
+                    <button type="submit" name="submit" class="btn btn-primary">Add</button>
                   </form>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="submit" form="addCategoryForm" class="btn btn-info">Update</button>
-                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Add</button>
+
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </div>

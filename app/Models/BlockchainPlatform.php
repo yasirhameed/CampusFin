@@ -5,15 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Promotor extends Model
+class BlockchainPlatform extends Model
 {
     use HasFactory;
-    protected $table = 'promoters';
+    protected $table = 'blockchain_platforms';
 
     protected $fillable = [
-        'promoterName',
-        'promoterType',
-        'promoterWallets',
-        'comments',
+        'platformName'
     ];
 }

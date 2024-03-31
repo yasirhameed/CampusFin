@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
-use App\Models\Category;
-use App\Models\Promotor;
-use App\Models\Developer;
+
+use App\Models\ProjectCategory;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -17,8 +16,7 @@ class AdminController extends Controller
 
     public function add_project()
     {
-        $project_category = Category::all();
-        return view('dashboard_layouts.add_project', compact('project_category'));
+        return view('dashboard_layouts.add_project');
     }
 
     public function project_store(Request $request)
@@ -119,7 +117,7 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'Project approved successfully');
     }
 
-    
+
 
 
 }

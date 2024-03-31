@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('developers', function (Blueprint $table) {
             $table->id();
-            $table->string('Developer_Name');
-            $table->string('Developer_Website');
-            $table->string('Developer_GitHub_Link');
-            $table->string('Developer_Social_Media');
-            $table->string('Developer_Previous_Project');
-            $table->unsignedBigInteger('Developer_Comments_Id')->nullable();
-            $table->text('Developer_Comments')->nullable();
+            $table->string('name');
+            $table->string('website_url');
+            $table->string('github_url');
+            $table->string('social_media');
+            $table->text('comments')->nullable();
             $table->timestamps();
         });
     }
