@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    @include('dashboard_layouts.css_link')
+    @include('user_dashboard_layouts.user_css_link')
 </head>
 
 <body id="page-top">
@@ -12,7 +12,7 @@
 
         <!-- Sidebar -->
 
-        @include('dashboard_layouts.sidebar')
+        @include('user_dashboard_layouts.user_sidebar')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -22,7 +22,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                @include("dashboard_layouts.top_navbar")
+                @include("user_dashboard_layouts.user_top_navbar")
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -30,14 +30,18 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800">User Dashboard</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
 
                     <!-- Content Row -->
+                    <br><br>
 
-                    @include('dashboard_layouts.content_section')
+                    <center>                        <h1>
+                        Welcome User Dashboard
+                    </h1></center>
+
                     <!-- Content Row -->
 
 

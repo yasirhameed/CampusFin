@@ -15,7 +15,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{url('admin')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>User</span></a>
             </li>
 
             <!-- Divider -->
@@ -63,60 +63,15 @@
                 <div id="project" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="{{url('add_project')}}">Add Project</a>
-                        <a class="collapse-item" href="{{url('list_project')}}">Project List</a>
+                        <a class="collapse-item" href="{{url('add_project_user')}}">Add Project</a>
+                        <a class="collapse-item" href="{{url('list_project_user')}}">Project List</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Category</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Category</h6>
-                        <a class="collapse-item" href="{{url('add_category')}}">Add category</a>
-                        <a class="collapse-item" href="{{url('show_category')}}">Show category</a>
 
-                    </div>
-                </div>
-            </li>
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Developer</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Developer List:</h6>
-                        <a class="collapse-item" href="{{url('add_developer')}}">add developer</a>
-                        <a class="collapse-item" href="{{url('developer')}}">Developer List</a>
-                    </div>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#promotorspage"
-                    aria-expanded="true" aria-controls="promotorspage">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>promotors</span>
-                </a>
-                <div id="promotorspage" class="collapse" aria-labelledby="headingPages" data-parent="#promotorspage">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">promotors List:</h6>
-                        <a class="collapse-item" href="{{url('add_promotors')}}">add promotors</a>
-                        <a class="collapse-item" href="{{url('promotors')}}">promotors List</a>
-                    </div>
-                </div>
-            </li>
-
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">

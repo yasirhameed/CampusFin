@@ -3,7 +3,7 @@
 
 <head>
 <title>Project List</title>
-@include("dashboard_layouts.css_link");
+@include("user_dashboard_layouts.user_css_link");
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* Add custom styles for the scrollable table */
@@ -19,7 +19,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include("dashboard_layouts.sidebar")
+        @include("user_dashboard_layouts.user_sidebar")
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -29,7 +29,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                @include("dashboard_layouts.top_navbar")
+                @include("user_dashboard_layouts.user_top_navbar")
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -198,6 +198,7 @@
             </div>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="admin_dashboard/vendor/jquery/jquery.min.js"></script>

@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuditController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\PromoterController;
+use App\Http\Controllers\UsersideController;
 use App\Http\Controllers\developerController;
 use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\PromoterTypeController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\TakenStandardController;
 use App\Http\Controllers\WalletAddressController;
 use App\Http\Controllers\InvestorCompanyController;
 use App\Http\Controllers\PrivateInvestorController;
+use App\Http\Controllers\ProjectCategoryController;
 use App\Http\Controllers\BlockchainPlatformController;
 use App\Http\Controllers\submodules\ProjectTypeController;
 
@@ -49,11 +51,28 @@ Route::Post('/project_store', [AdminController::class, 'project_store'])->name('
 Route::get('/list_project', [AdminController::class, 'project_list'])->name('list_project');
 Route::get('/delete_project/{id}', [AdminController::class, 'delete_project'])->name('delete_project');
 Route::get('/approve_project/{id}', [AdminController::class, 'approve'])->name('approve_project');
+Route::get('/edit_product/{id}', [AdminController::class, 'edit_product'])->name('edit_product');
+
+// user side routes
+
+Route::get('/add_project_user', [UsersideController::class, 'add_project_user'])->name('add_project_user');
+Route::Post('/project_store_user', [UsersideController::class, 'project_store'])->name('project_store_user');
+Route::get('/list_project_user', [UsersideController::class, 'project_list'])->name('list_project_user');
+Route::get('/delete_project_user/{id}', [UsersideController::class, 'delete_project'])->name('delete_project_user');
+
+Route::get('/edit_product_user/{id}', [UsersideController::class, 'edit_product'])->name('edit_product_user');
+
+
+
+
 
 
 // Sub moduls routes
 
+
 Route::post('/project-type', [ProjectTypeController::class, 'store'])->name('project-type.store');
+
+Route::post('/project-category', [ProjectCategoryController::class, 'store'])->name('project-category.store');
 
 Route::post('/project-domains', [ProjectDomainController::class, 'store'])->name('project-domains.store');
 
@@ -78,3 +97,5 @@ Route::post('/investor-companies', [InvestorCompanyController::class, 'store'])-
 Route::post('/promoter-types', [PromoterTypeController::class, 'store'])->name('promoter_types.store');
 
 Route::post('/wallet-addresses', [WalletAddressController::class, 'store'])->name('wallet_addresses.store');
+
+// Sub modules end

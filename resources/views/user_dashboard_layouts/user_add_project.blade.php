@@ -3,7 +3,7 @@
 
 <head>
     <title>Add Project</title>
-@include("dashboard_layouts.css_link");
+@include("user_dashboard_layouts.user_css_link");
 </head>
 
 <body id="page-top">
@@ -12,7 +12,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include("dashboard_layouts.sidebar")
+        @include("user_dashboard_layouts.user_sidebar")
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -22,7 +22,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                @include("dashboard_layouts.top_navbar")
+                @include("user_dashboard_layouts.user_top_navbar")
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -56,7 +56,7 @@
                                         @endif
                                         <div class="card-body">
                                         <div class="container ">
-                                            <form method="post" action="{{url('project_store')}}" enctype = "multipart/form-data">
+                                            <form method="post" action="{{url('project_store_user')}}" enctype = "multipart/form-data">
                                                 @csrf
                                                 <div class="row mb-3">
                                                     <div class="col-md-4">

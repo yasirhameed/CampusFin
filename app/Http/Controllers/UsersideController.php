@@ -3,24 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
-use App\Models\Developer;
-use App\Models\PrivateInvestor;
 use App\Models\Project;
-
+use App\Models\Promoter;
+use App\Models\Developer;
 use App\Models\ProjectType;
 use Illuminate\Http\Request;
 use App\Models\TakenStandard;
+use App\Models\PrivateInvestor;
 use App\Models\ProjectCategory;
-use App\Models\Promoter;
+use Illuminate\Routing\Controller;
 
-class AdminController extends Controller
+class UsersideController extends Controller
 {
-    public function index()
-    {
-        return view("dashboard");
-    }
-
-    public function add_project()
+    public function add_project_user()
     {
         $project_type = ProjectType::all();
         $project_category = ProjectCategory::all();
@@ -29,7 +24,7 @@ class AdminController extends Controller
         $companies = Company::all();
         $promoters = Promoter::all();
         $privatenvestors = PrivateInvestor::all();
-        return view('dashboard_layouts.add_project',
+        return view('user_dashboard_layouts.user_add_project',
                 ['project_type' => $project_type,
                 'project_category' => $project_category,
                 'project_standard' => $project_standard,
@@ -84,7 +79,7 @@ class AdminController extends Controller
         // Save the project record to the database
         $project->save();
 
-        return redirect()->route('add_project')->with('success', 'Project created successfully!');
+        return redirect()->route('project_store_user')->with('success', 'Project created successfully!');
     }
 
     public function project_list(Request $request)
@@ -106,7 +101,7 @@ class AdminController extends Controller
         // Paginate the filtered projects
         $projects = $query->paginate(6);
 
-        return view('dashboard_layouts.project_list', compact('projects'));
+        return view('user_dashboard_layouts.user_project_list', compact('projects'));
     }
 
 
@@ -120,7 +115,7 @@ class AdminController extends Controller
         $companies = Company::all();
         $promoters = Promoter::all();
         $privatenvestors = PrivateInvestor::all();
-        return view('dashboard_layouts.developer',
+        return view('userdashboard_layouts.developer',
                 ['project_type' => $project_type,
                 'project_category' => $project_category,
                 'project_standard' => $project_standard,
@@ -142,18 +137,4 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Product deleted successfully.');
     }
-
-    public function approve($id)
-    {
-        $project = Project::findOrFail($id);
-        $project->status = 'approved';
-        $project->save();
-
-        // Redirect or return a response as needed
-        return redirect()->back()->with('success', 'Project approved successfully');
-    }
-
-
-
-
 }
