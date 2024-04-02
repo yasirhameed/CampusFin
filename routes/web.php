@@ -13,6 +13,7 @@ use App\Http\Controllers\UsersideController;
 use App\Http\Controllers\developerController;
 use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\PromoterTypeController;
+use App\Http\Controllers\CoinMarketCapController;
 use App\Http\Controllers\ProjectDomainController;
 use App\Http\Controllers\TakenStandardController;
 use App\Http\Controllers\WalletAddressController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\PrivateInvestorController;
 use App\Http\Controllers\ProjectCategoryController;
 use App\Http\Controllers\BlockchainPlatformController;
 use App\Http\Controllers\submodules\ProjectTypeController;
+
 
 
 // homepage
@@ -59,43 +61,25 @@ Route::get('/add_project_user', [UsersideController::class, 'add_project_user'])
 Route::Post('/project_store_user', [UsersideController::class, 'project_store'])->name('project_store_user');
 Route::get('/list_project_user', [UsersideController::class, 'project_list'])->name('list_project_user');
 Route::get('/delete_project_user/{id}', [UsersideController::class, 'delete_project'])->name('delete_project_user');
-
 Route::get('/edit_product_user/{id}', [UsersideController::class, 'edit_product'])->name('edit_product_user');
-
-
-
-
-
 
 // Sub moduls routes
 
-
 Route::post('/project-type', [ProjectTypeController::class, 'store'])->name('project-type.store');
-
 Route::post('/project-category', [ProjectCategoryController::class, 'store'])->name('project-category.store');
-
 Route::post('/project-domains', [ProjectDomainController::class, 'store'])->name('project-domains.store');
-
 Route::Post('/taken_standard', [TakenStandardController::class, 'store']);
-
 Route::post('/blockchain-platform', [BlockchainPlatformController::class, 'store'])->name('blockchain.platform.store');
-
 Route::post('/audits', [AuditController::class, 'store'])->name('audits.store');
-
 Route::post('/social-media', [SocialMediaController::class, 'store'])->name('social-media.store');
-
 Route::post('/companies', [CompanyController::class, 'store'])->name('companies.store');
-
 Route::post('/developers', [DeveloperController::class, 'store'])->name('developers.store');
-
 Route::post('/promoters', [PromoterController::class, 'store'])->name('promoters.store');
-
 Route::post('/private-investors', [PrivateInvestorController::class, 'store'])->name('private_investors.store');
-
 Route::post('/investor-companies', [InvestorCompanyController::class, 'store'])->name('investor_companies.store');
-
 Route::post('/promoter-types', [PromoterTypeController::class, 'store'])->name('promoter_types.store');
-
 Route::post('/wallet-addresses', [WalletAddressController::class, 'store'])->name('wallet_addresses.store');
 
 // Sub modules end
+
+Route::get('/market-data', [CoinMarketCapController::class, 'getMarketData']);

@@ -1,83 +1,58 @@
-<footer id="footer">
 
-    <!-- <div class="footer-newsletter">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-6">
-            <h4>Join Our Newsletter</h4>
-            <p>Learn From Our Web Development Blog Read By Tech leaders</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
         </div>
-      </div>
-    </div> -->
+        <!-- End of Content Wrapper -->
 
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
+    </div>
+    <!-- End of Page Wrapper -->
 
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>CampusFin<span>.</span></h3>
-            <p>
-              36 civic centre Garden Town<br>
-              Lahore, 54000, Pakistan<br><br>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
-              <p>
-                10808 Capri Dr McKinney<br>
-                Texas, 75072, United States<br><br>
-
-
-              <strong>Phone:</strong> +92 336 4458 101<br>
-              <strong>Email:</strong> info@campusfin.com<br>
-            </p>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#hero">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#services">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">Portfolio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#team">Team</a></li>
-            </ul>
-          </div>
-
-          <div id="Services" class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
-            <p>CampusFin – The AI powered platform for enterprises to build deep learning based solutions and deploy them in production with just one end-to-end solution.</p>
-            <div class="social-links mt-3">
-              <a href="https://twitter.com/campus_fin" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="https://www.facebook.com/campusfiin" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="https://www.instagram.com/campusfin/" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="https://www.linkedin.com/company/campusfin/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
             </div>
-          </div>
-
         </div>
-      </div>
     </div>
 
-    <div class="container py-4">
-      <div class="copyright">
-        &copy; 2018-2024 <strong><span>CampusFin.com, Inc. or its affiliates</span></strong>
-      </div>
-      <div class="credits">
+    <!-- Bootstrap core JavaScript-->
+    <script src="admin/vendor/jquery/jquery.min.js"></script>
+    <script src="admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-      </div>
-    </div>
-  </footer>
+    <!-- Core plugin JavaScript-->
+    <script src="admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="admin/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="admin/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="admin/js/demo/chart-area-demo.js"></script>
+    <script src="admin/js/demo/chart-pie-demo.js"></script>

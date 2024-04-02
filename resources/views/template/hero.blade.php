@@ -10,4 +10,4 @@
             class="bi bi-play-circle"></i><span>Watch Video</span></a>
       </div>
     </div>
-  </section>
+  </section><!-- End Hero -->

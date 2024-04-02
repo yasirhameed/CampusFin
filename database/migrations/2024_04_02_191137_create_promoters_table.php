@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('wallet_addresses', function (Blueprint $table) {
+        Schema::create('promoters', function (Blueprint $table) {
             $table->id();
-            $table->string('walletHolderName');
-            $table->string('walletHolderCategory');
-            $table->string('walletAddress');
+            $table->string('name');
+            $table->string('type');
+            $table->string('wallets');
+            $table->string('comments');
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('wallet_addresses');
+        Schema::dropIfExists('promoters');
     }
 };

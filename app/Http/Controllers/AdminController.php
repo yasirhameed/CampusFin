@@ -22,6 +22,9 @@ class AdminController extends Controller
 
     public function add_project()
     {
+
+        // return view('layouts.add_project');
+
         $project_type = ProjectType::all();
         $project_category = ProjectCategory::all();
         $project_standard = TakenStandard::all();
@@ -29,7 +32,7 @@ class AdminController extends Controller
         $companies = Company::all();
         $promoters = Promoter::all();
         $privatenvestors = PrivateInvestor::all();
-        return view('dashboard_layouts.add_project',
+        return view('layouts.add_project',
                 ['project_type' => $project_type,
                 'project_category' => $project_category,
                 'project_standard' => $project_standard,
@@ -106,7 +109,8 @@ class AdminController extends Controller
         // Paginate the filtered projects
         $projects = $query->paginate(6);
 
-        return view('dashboard_layouts.project_list', compact('projects'));
+        return view('layouts.project_list', compact('projects'));
+        // return view('layouts.project_list');
     }
 
 

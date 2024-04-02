@@ -1,9 +1,9 @@
 <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="{{url('/')}}">CampusFin<span>.</span></a></h1>
+      <h1 class="logo"><a href="index.html">CampusFin<span>.</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
+      <!-- <a href="index.html" class="logo"><img src="template/assets/img/logo.png" alt=""></a>-->
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -104,21 +104,6 @@
               <li><a href="#">Drop Down 4</a></li> -->
             </ul>
           </li>
-          <li class="dropdown"><a href="#"><span>Crypto</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <!-- <li><a href="#">Blogs</a></li> -->
-              <li class="dropdown"><a href="#"><span>Project</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="{{url('add_project_home')}}">Add Project</a></li>
-                  <li><a href="{{url('manage_project_home')}}">Manage Project</a></li>
-                  <!-- <li><a href="#">API Testing</a></li>
-                  <li><a href="#">Automation Testing</a></li>
-                  <li><a href="#">Interview Questions</a></li> -->
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <!-- <li><a class="nav-link scrollto" href="#contact">Crypto</a></li> -->
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

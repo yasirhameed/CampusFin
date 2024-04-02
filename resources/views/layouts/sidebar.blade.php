@@ -1,42 +1,62 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/admin')}}">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Admin</div>
-            </a>
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Admin</div>
+    </a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="{{url('admin')}}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>{{ auth()->user()->name }}-Dashboard</span></a>
+    </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+    <!-- Divider -->
+    <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Interface
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Components</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Add Project</h6>
+                <a class="collapse-item" href="{{url('add_project')}}">Add Project</a>
+                <a class="collapse-item" href="{{url('list_project')}}">Project List</a>
             </div>
+        </div>
+    </li>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#submodules"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Add Records</span>
-                </a>
-                <div id="submodules" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#projecttypeModal">Project type</a>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#crypto"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Crypto</span>
+        </a>
+        <div id="crypto" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">crypto</h6>
+                <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#projecttypeModal">Project type</a>
                         <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#projectcategoryModal">Project category</a>
                         <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#projectdomainModal">Project Domain</a>
                         <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#projecttakenstandardModal">Taken Standard</a>
@@ -50,96 +70,20 @@
                         <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#investercompany">Invester Company</a>
                         <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#promotertype">Promoter Type</a>
                         <a id="openModalButton" class="collapse-item" data-bs-toggle="modal" data-bs-target="#walletaddress">Wallet Address</a>
-                        {{-- <a class="collapse-item" href="{{url('list_project')}}">Project List</a> --}}
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#project"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Projects</span>
-                </a>
-                <div id="project" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="{{url('add_project')}}">Add Project</a>
-                        <a class="collapse-item" href="{{url('list_project')}}">Project List</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Category</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Category</h6>
-                        <a class="collapse-item" href="{{url('add_category')}}">Add category</a>
-                        <a class="collapse-item" href="{{url('show_category')}}">Show category</a>
-
-                    </div>
-                </div>
-            </li>
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Developer</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Developer List:</h6>
-                        <a class="collapse-item" href="{{url('add_developer')}}">add developer</a>
-                        <a class="collapse-item" href="{{url('developer')}}">Developer List</a>
-                    </div>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#promotorspage"
-                    aria-expanded="true" aria-controls="promotorspage">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>promotors</span>
-                </a>
-                <div id="promotorspage" class="collapse" aria-labelledby="headingPages" data-parent="#promotorspage">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">promotors List:</h6>
-                        <a class="collapse-item" href="{{url('add_promotors')}}">add promotors</a>
-                        <a class="collapse-item" href="{{url('promotors')}}">promotors List</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-            <!-- Sidebar Message -->
-        </ul>
+        </div>
+    </li>
+
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+</ul>
+
 
         {{-- models  --}}
 
