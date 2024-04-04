@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CoinController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
@@ -82,4 +83,11 @@ Route::post('/wallet-addresses', [WalletAddressController::class, 'store'])->nam
 
 // Sub modules end
 
-Route::get('/market-data', [CoinMarketCapController::class, 'getMarketData']);
+
+Route::get('/manage_project_home', [HomeController::class, 'manage_project_home']);
+Route::get('/preview_project_home/{id}', [HomeController::class, 'preview_project_home']);
+
+
+Route::get('/live-prices', [CoinController::class, 'getLivePrices']);
+Route::get('/trending-coins',[CoinController::class, 'getTrendingCoins']);
+Route::get('/crypto_table',[CoinController::class, 'crypto_table']);

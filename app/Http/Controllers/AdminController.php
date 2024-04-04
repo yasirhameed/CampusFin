@@ -6,7 +6,6 @@ use App\Models\Company;
 use App\Models\Developer;
 use App\Models\PrivateInvestor;
 use App\Models\Project;
-
 use App\Models\ProjectType;
 use Illuminate\Http\Request;
 use App\Models\TakenStandard;
@@ -22,9 +21,7 @@ class AdminController extends Controller
 
     public function add_project()
     {
-
         // return view('layouts.add_project');
-
         $project_type = ProjectType::all();
         $project_category = ProjectCategory::all();
         $project_standard = TakenStandard::all();
@@ -42,8 +39,6 @@ class AdminController extends Controller
                 'privatenvestors' => $privatenvestors,
                 ]);
     }
-
-
     public function project_store(Request $request)
     {
         // Validate the request if needed (you mentioned without validation, so validation is omitted here)
@@ -107,7 +102,7 @@ class AdminController extends Controller
         }
 
         // Paginate the filtered projects
-        $projects = $query->paginate(6);
+        $projects = $query->paginate(10);
 
         return view('layouts.project_list', compact('projects'));
         // return view('layouts.project_list');
@@ -159,5 +154,9 @@ class AdminController extends Controller
 
 
 
+    public function guide()
+    {
+        return view('template.guide_screen');
+    }
 
 }

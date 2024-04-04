@@ -4,6 +4,38 @@
 <head>
 
     @include('layouts.css')
+    <style>
+/* Add custom styles for the scrollable table */
+.scrollable-table {
+    overflow-x: auto;
+}
+
+/* Customize scrollbar for WebKit browsers (Chrome, Safari) */
+.scrollable-table::-webkit-scrollbar {
+    width: 5px; /* Set the width of the scrollbar */
+}
+
+.scrollable-table::-webkit-scrollbar-thumb {
+    background-color: #888; /* Set the color of the scrollbar thumb */
+    border-radius: 5px; /* Set the border radius of the thumb */
+}
+
+/* Customize scrollbar for Firefox */
+.scrollable-table {
+    scrollbar-width: thin; /* Set the width of the scrollbar */
+}
+
+.scrollable-table::-webkit-scrollbar-thumb {
+    background-color: #888; /* Set the color of the scrollbar thumb */
+    border-radius: 5px; /* Set the border radius of the thumb */
+}
+th {
+    min-width: 80px; /* Set minimum width */
+    max-width: 200px; /* Set maximum width */
+    width: auto; /* Allow width to adjust based on content */
+}
+
+    </style>
 </head>
 
 <body id="page-top">
@@ -116,17 +148,49 @@
                                                     <td>{{ $project->radioInvestorRelease }}</td>
                                                     <td>{{ $project->comment }}</td>
                                                     <td>{{ $project->status }}</td>
-                                                    <td><a href="{{ url('edit_product', $project->id) }}" class="btn btn-info btn-sm"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                                                    <td><a href="{{ url('delete_project', $project->id) }}" class="btn btn-danger btn-sm"><i class="fa-solid fa-delete-left"></i></a></td>
-                                                    <td><a href="{{ url('approve_project', $project->id) }}" class="btn btn-dark btn-sm"><i class="fa-solid fa-person-circle-check"></i></a></td>
+                                                    <td><a href="{{ url('edit_product', $project->id) }}" class="btn btn-info btn-sm">Edit</a></td>
+                                                    <td><a href="{{ url('delete_project', $project->id) }}" class="btn btn-danger btn-sm">Delete</a></td>
+                                                    <td><a href="{{ url('approve_project', $project->id) }}" class="btn btn-dark btn-sm">Approve</a></td>
                                                 </tr>
                                             @endforeach
 
                                             </table>
                                         </div>
-                                        <div class="d-flex justify-content-center mt-4">
-{{ $projects->links() }}
-</div>
+
+                                        <nav aria-label="Page navigation mt-4">
+                                            <ul class="pagination pagination-sm justify-content-center">
+                                                {{-- Previous Page Link --}}
+                                                @if ($projects->onFirstPage())
+                                                    <li class="page-item disabled" aria-disabled="true">
+                                                        <span class="page-link">Previous</span>
+                                                    </li>
+                                                @else
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="{{ $projects->previousPageUrl() }}" rel="prev" aria-label="Previous">&laquo;</a>
+                                                    </li>
+                                                @endif
+
+                                                {{-- Pagination Elements --}}
+                                                @foreach ($projects as $project)
+                                                    <li class="page-item {{ $loop->first ? 'active' : '' }}" aria-current="{{ $loop->first ? 'page' : '' }}">
+                                                        <a class="page-link" href="{{ $project->url }}">{{ $loop->iteration }}</a>
+                                                    </li>
+                                                @endforeach
+
+                                                {{-- Next Page Link --}}
+                                                @if ($projects->hasMorePages())
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="{{ $projects->nextPageUrl() }}" rel="next" aria-label="Next">&raquo;</a>
+                                                    </li>
+                                                @else
+                                                    <li class="page-item disabled" aria-disabled="true">
+                                                        <span class="page-link">Next</span>
+                                                    </li>
+                                                @endif
+                                            </ul>
+                                        </nav>
+
+
 
                 <!-- /.container-fluid -->
          </div>
