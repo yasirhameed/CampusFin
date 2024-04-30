@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CoinController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\PromoterController;
 use App\Http\Controllers\UsersideController;
 use App\Http\Controllers\developerController;
+use App\Http\Controllers\CustompageController;
 use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\PromoterTypeController;
 use App\Http\Controllers\CoinMarketCapController;
@@ -23,8 +25,6 @@ use App\Http\Controllers\PrivateInvestorController;
 use App\Http\Controllers\ProjectCategoryController;
 use App\Http\Controllers\BlockchainPlatformController;
 use App\Http\Controllers\submodules\ProjectTypeController;
-
-
 
 // homepage
 Route::get("/", [HomeController::class, 'index']);
@@ -89,5 +89,14 @@ Route::get('/preview_project_home/{id}', [HomeController::class, 'preview_projec
 
 
 Route::get('/live-prices', [CoinController::class, 'getLivePrices']);
-Route::get('/trending-coins',[CoinController::class, 'getTrendingCoins']);
-Route::get('/crypto_table',[CoinController::class, 'crypto_table']);
+Route::get('/trending-coins', [CoinController::class, 'getTrendingCoins']);
+Route::get('/crypto_table', [CoinController::class, 'crypto_table']);
+
+Route::get('/category_page', [CustompageController::class, 'acadmey_home']);
+Route::get('/sqa_type', [CustompageController::class, 'SQA_type']);
+
+
+Route::get('/categories', [CategoryController::class, 'create']);
+Route::post('/categories_store', [CategoryController::class, 'store']);
+Route::get('/categorylist', [CategoryController::class, 'category_list']);
+Route::delete('/categories_delete/{id}', [CategoryController::class, 'destroy']);

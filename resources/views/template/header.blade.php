@@ -24,14 +24,16 @@
                   <li><a href="#">Interview Questions</a></li>
                 </ul>
               </li>
+              <li class="dropdown"><a href="#"><span>acadmey home</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="{{url('category_page')}}">Academy_file</a></li>
+                  <li><a href="{{url('sqa_type')}}">SQA Type</a></li>
+                </ul>
+              </li>
 
               <li class="dropdown"><a href="#"><span>Content Writing</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="#">Introduction</a></li>
-                  <!-- <li><a href="#">SEO and Keyword Optimization</a></li>
-                  <li><a href="#">API Testing</a></li>
-                  <li><a href="#">Automation Testing</a></li>
-                  <li><a href="#">Interview Questions</a></li> -->
                 </ul>
               </li>
 
@@ -40,8 +42,7 @@
                   <li><a href="#">Introduction</a></li>
                   <li><a href="#">Social Media Platforms</a></li>
                   <li><a href="#">Content Writing</a></li>
-                  <!-- <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li> -->
+
                 </ul>
               </li>
 
@@ -71,37 +72,24 @@
               <li class="dropdown"><a href="#"><span>AWS Web Services</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="#">Introduction</a></li>
-                  <!-- <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li> -->
                 </ul>
               </li>
 
               <li class="dropdown"><a href="#"><span>Machine Learning</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="#">Introduction</a></li>
-                  <!-- <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li> -->
+
                 </ul>
               </li>
 
               <li class="dropdown"><a href="#"><span>Artificial Intelligence</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="#">Introduction</a></li>
-                  <!-- <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li> -->
+
                 </ul>
               </li>
 
 
-               <!-- <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li> -->
             </ul>
           </li>
           <li class="dropdown"><a href="#"><span>Crypto</span> <i class="bi bi-chevron-down"></i></a>
